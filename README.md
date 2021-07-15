@@ -881,61 +881,53 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 实例：
 
   - （1）查找 48 小时内修改过的文件
-
   - find -atime -2
+  
   - （2）在当前目录查找 以 .log 结尾的文件。 . 代表当前目录
-
   - find ./ -name '*.log'
+  
   - （3）查找 /opt 目录下 权限为 777 的文件
-
   - find /opt -perm 777
+  
   - （4）查找大于 1K 的文件
-
   - find -size +1000c
   - 查找等于 1000 字符的文件
-
   - find -size 1000c 
   - -exec 参数后面跟的是 command 命令，它的终止是以 ; 为结束标志的，所以这句命令后面的分号是不可缺少的，考虑到各个系统中分号会有不同的意义，所以前面加反斜杠。{} 花括号代表前面find查找出来的文件名。
 
-  - 实例：
-
   - （5）在当前目录中查找更改时间在10日以前的文件并删除它们(无提醒）
-
   - find . -type f -mtime +10 -exec rm -f {} \;
+  
   - （6）当前目录中查找所有文件名以.log结尾、更改时间在5日以上的文件，并删除它们，只不过在删除之前先给出提示。 按y键删除文件，按n键不删除
-
   - find . -name '*.log' mtime +5 -ok -exec rm {} \;
+  
   - （7）当前目录下查找文件名以 passwd 开头，内容包含 "pkg" 字符的文件
-
   - find . -f -name 'passwd*' -exec grep "pkg" {} \;
+  
   - （8）用 exec 选项执行 cp 命令
-
   - find . -name '*.log' -exec cp {} test3 \;
   - -xargs find 命令把匹配到的文件传递给 xargs 命令，而 xargs 命令每次只获取一部分文件而不是全部，不像 -exec 选项那样。这样它可以先处理最先获取的一部分文件，然后是下一批，并如此继续下去。
 
-  - 实例：
-
   - （9）查找当前目录下每个普通文件，然后使用 xargs 来判断文件类型
-
   - find . -type f -print | xargs file
+  
   - （10）查找当前目录下所有以 js 结尾的并且其中包含 'editor' 字符的普通文件
-
   - find . -type f -name "*.js" -exec grep -lF 'ueditor' {} \;
   - find -type f -name '*.js' | xargs grep -lF 'editor'
+  
   - （11）利用 xargs 执行 mv 命令
-
   - find . -name "*.log" | xargs -i mv {} test4
+  
   - （12）用 grep 命令在当前目录下的所有普通文件中搜索 hostnames 这个词，并标出所在行：
-
   - find . -name \*(转义） -type f -print | xargs grep -n 'hostnames'
+  
   - （13）查找当前目录中以一个小写字母开头，最后是 4 到 9 加上 .log 结束的文件：
-
   - find . -name '[a-z]*[4-9].log' -print
+  
   - （14）在 test 目录查找不在 test4 子目录查找
-
   - find test -path 'test/test4' -prune -o -print
+  
   - （15）实例1：查找更改时间比文件 log2012.log新但比文件 log2017.log 旧的文件
-
   - find -newer log2012.log ! -newer log2017.log
   - 使用 depth 选项：
 
@@ -966,24 +958,12 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - -R 递归查找文件夹
 
   ### 实例：
-
-  - （1）查找指定进程
-  - ps -ef | grep svn
-
-  - （2）查找指定进程个数
-  - ps -ef | grep svn -c
-
-  - （3）从文件中读取关键词
-  - cat test1.txt | grep -f key.log
-
-  - （4）从文件夹中递归查找以grep开头的行，并只列出文件
-  - grep -lR '^grep' /tmp
-
-  - （5）查找非x开关的行内容
-  - grep '[x]' test.txt
-
-  - （6）显示包含ed或者at字符的内容行
-  - grep -E 'ed|at' test.txt
+  - ps -ef | grep svn  查找指定进程
+  - ps -ef | grep svn -c  查找指定进程个数
+  - cat test1.txt | grep -f key.log  从文件中读取关键词
+  - grep -lR '^grep' /tmp  从文件夹中递归查找以grep开头的行，并只列出文件
+  - grep '[x]' test.txt  查找非x开关的行内容
+  - grep -E 'ed|at' test.txt  显示包含ed或者at字符的内容行
 
  ## 18、chmod　访问权限
   ### 常用参数：
@@ -1056,7 +1036,6 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - %Y 年份(以四位数来表示)。
 
   ### 实例：
-
   - （1）显示下一天
   - date +%Y%m%d --date="+1 day" //显示下一天的日期
 
@@ -1117,8 +1096,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - s：从前光标位置处开始,以输入的文本替代指定数目的字符
 
 ​
-  ### 3.保存命令
-
+  ### 3.VI/VIM 编辑保存
   - 按ESC键 跳到命令模式，然后：
   - :w 保存文件但不退出vi
   - :w file 将修改另外保存到file中，不退出vi
@@ -1130,10 +1108,10 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - :e! 放弃所有修改，从上次保存文件开始再编辑
 
  ## 26、echo指令向文件写入内容
-  - 1.覆盖文件内容  
+  - 1、覆盖文件内容  
     echo "Raspberry" > test.txt  使用>指令覆盖文件原内容并重新输入内容，若文件不存在则创建文件。
 
-  - 2.追加文件内容
+  - 2、追加文件内容
     【示例脚本】test.sh  
     使用>>指令向文件追加内容，原内容将保存。  
 
