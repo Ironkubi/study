@@ -738,7 +738,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - cp -s a.txt link_a.txt  为a.txt建议一个链接（快捷方式）  
 
  ## 9、cat 显示文件详情
-  ### 1、cat主要有三大功能：
+  ### cat主要有三大功能：
    - ​cat filename 一次显示整个文件
    - cat > filename 从键盘创建一个文件，只能创建新文件,不能编辑已有文件.
    - cat file1 file2 > file 将几个文件合并为一个文件
@@ -750,9 +750,9 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - cat >log.txt <<EOF 使用here doc生成新文件
 
  ## 10、more　分页显示
-  - 功能类似于cat, more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示  - 
+  - 功能类似于cat, more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示 
 ​  
-  - 命令参数：
+  ### 命令参数：
   - +n 从笫n行开始显示
   - -n 定义屏幕大小为n行
   - +/pattern 在每个档案显示前搜寻该字串（pattern），然后从该字串前两行之后开始显示
@@ -763,20 +763,18 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - -s 把连续的多个空行显示为一行
   - -u 把文件内容中的下画线去掉
 
-  - 常用操作命令：
-  
+  ### 常用操作命令：
   - Enter 向下n行，需要定义。默认为1行
   - Ctrl+F 向下滚动一屏
   - 空格键 向下滚动一屏
   - Ctrl+B 返回上一屏
   - = 输出当前行的行号
   - ：f 输出文件名和当前行的行号
-
   - V 调用vi编辑器
   - !命令 调用Shell，并执行命令
   - q 退出more
 
-  - 实例：
+  ### 实例：
   - more +3 text.txt 显示文件中从第3行起的内容
   - ls -l | more -5 在所列出文件目录详细信息，借助管道使每次显示5行
 
@@ -784,7 +782,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
  ## 11、less命令
   - less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动，而且 less 在查看之前不会加载整个文件。
 
-  - 常用命令参数
+  ### 常用命令参数
   - -i 忽略搜索时的大小写
   - -N 显示每行的行号
   - -o <文件名> 将less 输出的内容在指定文件中保存起来
@@ -793,7 +791,6 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - ?字符串：向上搜索“字符串”的功能
   - n：重复前一个搜索（与 / 或 ? 有关）
   - N：反向重复前一个搜索（与 / 或 ? 有关）
-
   - -x <数字> 将“tab”键显示为规定的数字空格
   - b 向后翻一页
   - d 向后翻半页
@@ -807,29 +804,26 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - [pagedown]： 向下翻动一页
   - [pageup]： 向上翻动一页
 
-  - 实例：
-  - （1）ps查看进程信息并通过less分页显示
-  - ps -aux | less -N
-  
-  - （2）查看多个文件
-  - less 1.log 2.log
-  - 可以使用n查看下一个，使用p查看前一个
+  ### 实例：
+  - ps -aux | less -N  ps查看进程信息并通过less分页显示
+  - less 1.log 2.log  查看多个文件
+
 
  ## 12、head　从头ｎ行文本内容
-  - 用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件。
+  - head 用来显示档案的开头至标准输出中，默认head命令打印其相应文件的开头 10 行。
 
-  - 常用参数：
-  - -f 循环读取（常用于查看递增的日志文件）
-  - -n<行数> 显示行数（从后向前）
+  ### 常用参数：
+  - -n<行数> 显示的行数（行数为复数表示从最后向前数）
   
-  - （1）循环读取逐渐增加的文件内容
-  - ping 127.0.0.1 > ping.log &（后台运行：可使用jobs -l查看，也可使用fg将其移到前台运行）
-  - tail -f ping.log（查看日志）
+  ### 实例：
+  - head 1.log -n 20  显示 1.log 文件中前 20 行
+  - head -c 20 log2014.log  显示 1.log 文件前 20 字节
+  - head -n -10 t.log  显示 t.log最后 10 行
 
  ## 13、tail　从尾ｎ行文本
   - 用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件。
 
-  - 常用参数：
+  ### 常用参数：
   - -f 循环读取（常用于查看递增的日志文件）
   - -n<行数> 显示行数（从后向前）
   
@@ -845,11 +839,10 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - ​find 实际搜寻硬盘查询文件名称。
   - ​which是在PATH就是指定的路径中，搜索某个系统命令的位置，并返回第一个搜索结果。使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。
 
-  - 常用参数：
-
+  ### 常用参数：
   - -n 　指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名。
 
-  - 实例：
+  ### 实例：
 
 ​  - which ls 查看ls命令是否存在，执行哪个
   - ​which which 查看which
@@ -884,33 +877,72 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
   - -xargs find命令把匹配到的文件传递给xargs命令，而xargs命令每次只获取一部分文件而不是全部，不像-exec选项那样。这样它可以先处理最先获取的一部分文件，然后是下一批，并如此继续下去。
 
+  ### 实例：
+实例：
+
+  - （1）查找 48 小时内修改过的文件
+
+  - find -atime -2
+  - （2）在当前目录查找 以 .log 结尾的文件。 . 代表当前目录
+
+  - find ./ -name '*.log'
+  - （3）查找 /opt 目录下 权限为 777 的文件
+
+  - find /opt -perm 777
+  - （4）查找大于 1K 的文件
+
+  - find -size +1000c
+  - 查找等于 1000 字符的文件
+
+  - find -size 1000c 
+  - -exec 参数后面跟的是 command 命令，它的终止是以 ; 为结束标志的，所以这句命令后面的分号是不可缺少的，考虑到各个系统中分号会有不同的意义，所以前面加反斜杠。{} 花括号代表前面find查找出来的文件名。
+
   - 实例：
 
-  - （9）查找当前目录下每个普通文件，然后使用xargs来判断文件类型
+  - （5）在当前目录中查找更改时间在10日以前的文件并删除它们(无提醒）
+
+  - find . -type f -mtime +10 -exec rm -f {} \;
+  - （6）当前目录中查找所有文件名以.log结尾、更改时间在5日以上的文件，并删除它们，只不过在删除之前先给出提示。 按y键删除文件，按n键不删除
+
+  - find . -name '*.log' mtime +5 -ok -exec rm {} \;
+  - （7）当前目录下查找文件名以 passwd 开头，内容包含 "pkg" 字符的文件
+
+  - find . -f -name 'passwd*' -exec grep "pkg" {} \;
+  - （8）用 exec 选项执行 cp 命令
+
+  - find . -name '*.log' -exec cp {} test3 \;
+  - -xargs find 命令把匹配到的文件传递给 xargs 命令，而 xargs 命令每次只获取一部分文件而不是全部，不像 -exec 选项那样。这样它可以先处理最先获取的一部分文件，然后是下一批，并如此继续下去。
+
+  - 实例：
+
+  - （9）查找当前目录下每个普通文件，然后使用 xargs 来判断文件类型
+
   - find . -type f -print | xargs file
+  - （10）查找当前目录下所有以 js 结尾的并且其中包含 'editor' 字符的普通文件
 
-  - （10）查找当前目录下所有以js结尾的并且其中包含'editor'字符的普通文件
-  - find . -type f -name "*.js" -exec grep -lF 'ueditor' {} ;
+  - find . -type f -name "*.js" -exec grep -lF 'ueditor' {} \;
   - find -type f -name '*.js' | xargs grep -lF 'editor'
+  - （11）利用 xargs 执行 mv 命令
 
-  - （11）利用xargs执行mv命令
   - find . -name "*.log" | xargs -i mv {} test4
+  - （12）用 grep 命令在当前目录下的所有普通文件中搜索 hostnames 这个词，并标出所在行：
 
-  - （12）用grep命令在当前目录下的所有普通文件中搜索hostnames这个词,并标出所在行
-  - find . -name *(转义） -type f -print | xargs grep -n 'hostnames'
-  
-  - （13）查找当前目录中以一个小写字母开头，最后是4到9加上.log结束的文件
+  - find . -name \*(转义） -type f -print | xargs grep -n 'hostnames'
+  - （13）查找当前目录中以一个小写字母开头，最后是 4 到 9 加上 .log 结束的文件：
+
   - find . -name '[a-z]*[4-9].log' -print
-  
-  - （14）在test目录查找不在test4子目录查找
+  - （14）在 test 目录查找不在 test4 子目录查找
+
   - find test -path 'test/test4' -prune -o -print
-  
-  - （15）实例1：查找更改时间比文件log2012.log新但比文件log2017.log旧的文件
-  -  find -newer log2012.log ! -newer log2017.log
-  
-  - 使用depth选项：
-  - depth选项可以使find命令向磁带上备份文件系统时，希望首先备份所有的文件，其次再备份子目录中的文件。
-  -  实例：find命令从文件系统的根目录开始，查找一个名为CON.FILE的文件。 它将首先匹配所有的文件然后再进入子目录中查找
+  - （15）实例1：查找更改时间比文件 log2012.log新但比文件 log2017.log 旧的文件
+
+  - find -newer log2012.log ! -newer log2017.log
+  - 使用 depth 选项：
+
+  - depth 选项可以使 find 命令向磁带上备份文件系统时，希望首先备份所有的文件，其次再备份子目录中的文件。
+
+  - 实例：find 命令从文件系统的根目录开始，查找一个名为 CON.FILE 的文件。 它将首先匹配所有的文件然后再进入子目录中查找
+
   - find / -name "CON.FILE" -depth -print
 
  ## 17、grep　文本搜索命令
@@ -921,7 +953,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - 命令格式：
   - grep [option] pattern file|dir
   
-  - 常用参数：
+  ### 常用参数：
 
   - -A n --after-context显示匹配字符后n行
   - -B n --before-context显示匹配字符前n行
@@ -933,7 +965,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - -n 显示匹配内容的所在文件中行数
   - -R 递归查找文件夹
 
-  - 实例：
+  ### 实例：
 
   - （1）查找指定进程
   - ps -ef | grep svn
@@ -954,35 +986,28 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - grep -E 'ed|at' test.txt
 
  ## 18、chmod　访问权限
-  - 常用参数：
+  ### 常用参数：
   - -c 当发生改变时，报告处理信息
   - -R 处理指定目录以及其子目录下所有文件
   
-  - 权限范围：
+  ### 权限范围：
   - u ：目录或者文件的当前的用户
   - g ：目录或者文件的当前的群组
   - o ：除了目录或者文件的当前用户或群组之外的用户或者群组
   - a ：所有的用户及群组
 
-  - 权限代号：
+  ### 权限代号：
   - r ：读权限，用数字4表示
   - w ：写权限，用数字2表示
   - x ：执行权限，用数字1表示  
   - \- ：删除权限，用数字0表示
   - s ：特殊权限
 
-  - 实例：
-  - （1）增加文件t.log所有用户可执行权限
-  - chmod a+x t.log
-
-  - （2）撤销原来所有的权限，然后使拥有者具有可读权限,并输出处理信息
-  - chmod u=r t.log -c
-
-  - （3）给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限
-  - chmod 751 t.log -c（或者：chmod u=rwx,g=rx,o=x t.log -c)
-
-  - （4）将test目录及其子目录所有文件添加可读权限
-  - chmod u+r,g+r,o+r -R text/ -c
+  ### 实例：
+  - chmod a+x t.log  增加文件t.log所有用户可执行权限
+  - chmod u=r t.log -c  撤销原来所有的权限，然后使拥有者具有可读权限,并输出处理信息
+  - chmod 751 t.log -c（或者：chmod u=rwx,g=rx,o=x t.log -c)  给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限
+  - chmod u+r,g+r,o+r -R text/ -c  将test目录及其子目录所有文件添加可读权限
 
  ## 19、chown　改为指定的用户或组
   - -c 显示更改的部分的信息
@@ -1001,7 +1026,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - -l 只显示本地磁盘
   - -T 列出文件系统类型
 
-  - 实例：
+  ### 实例：
 
   - （1）显示磁盘使用情况
   - df -l
@@ -1012,7 +1037,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
  ## 21、date　显示时间
   - 显示或设定系统的日期与时间
 
-  - 命令参数：
+  ### 命令参数：
   - -d<字符串> 　显示字符串所指的日期与时间。字符串前后必须加上双引号。
   - -s<字符串> 　根据字符串来设置日期与时间。字符串前后必须加上双引号。
   - -u 　显示GMT。
@@ -1030,14 +1055,12 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - %y 年份(以00-99来表示)。
   - %Y 年份(以四位数来表示)。
 
-  - 实例：
+  ### 实例：
 
   - （1）显示下一天
-
   - date +%Y%m%d --date="+1 day" //显示下一天的日期
 
   - （2）-d参数使用
-
   - date -d "nov 22" 今年的 11 月 22 日是星期三
   - date -d '2 weeks' 2周后的日期
   - date -d 'next monday' (下周一的日期)
@@ -1052,20 +1075,19 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - ps -aux | grep apache 与grep联用查找某进程
   - s aux | grep '(cron|syslog)' 找出与 cron 与 syslog 这两个服务有关的 PID 号码
 
-
  ## 23、kill　杀死进程
   - kill -9 $(ps -ef | grep pro1) 先使用ps查找进程pro1，然后用kill杀掉
 
  ## 24、free　显示内存使用情况
-  ### 1.显示内存使用情况
+  ### 显示内存使用情况
    - free
    - free -k
    - free -m
 
-  ### 2.以总和的形式显示内存的使用信息
+  ### 以总和的形式显示内存的使用信息
    - free -t
 
-  ### 3.周期性查询内存使用情况
+  ### 周期性查询内存使用情况
    - free -s 10
 
  ## 25、VI 和vim 编辑文本
@@ -1076,14 +1098,14 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - vi -r filename ：在上次正用vi编辑时发生系统崩溃,恢复filename
   - vi filename....filename ：打开多个文件,依次进行编辑
 
-  ### 1.屏幕翻滚类命令
+  ### 屏幕翻滚类命令
   - Ctrl u：向文件首翻半屏
   - Ctrl d：向文件尾翻半屏
   - Ctrl f：向文件尾翻一屏
   - Ctrl＋b；向文件首翻一屏
   - nz：将第n行滚至屏幕顶部,不指定n时将当前行滚至屏幕顶部.
 
-  ### 2.插入文本类命令
+  ### 插入文本类命令
   - i ：在光标前
   - I ：在当前行首
   - a：光标后
