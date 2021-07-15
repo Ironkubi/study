@@ -685,12 +685,13 @@
     2）自动重定向是不用跟踪请求执行过程，也不用记录
 
  ## LoadRunner分为哪三个模块？请简述各模块的主要功能。
-　　Virtual User Generator：用于录制脚步
-　　Mercury LoadRunner Controller：用于创建、运行和监控场景
-　　Mercury LoadRunner Analysis：用于分析测试结果
+　　Virtual User Generator：用于录制脚步  
+　　Mercury LoadRunner Controller：用于创建、运行和监控场景  
+　　Mercury LoadRunner Analysis：用于分析测试结果  
 
 
 # 五、Linux & Docker
+Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
  ## 1、ls 查看目录文件  
   - ls -a  列出目录所有文件，包含以.开始的隐藏文件   
@@ -886,25 +887,24 @@
   - 实例：
 
   - （9）查找当前目录下每个普通文件，然后使用xargs来判断文件类型
-
   - find . -type f -print | xargs file
 
   - （10）查找当前目录下所有以js结尾的并且其中包含'editor'字符的普通文件
-
   - find . -type f -name "*.js" -exec grep -lF 'ueditor' {} ;
-
   - find -type f -name '*.js' | xargs grep -lF 'editor'
 
   - （11）利用xargs执行mv命令
-
   - find . -name "*.log" | xargs -i mv {} test4
 
   - （12）用grep命令在当前目录下的所有普通文件中搜索hostnames这个词,并标出所在行
   - find . -name *(转义） -type f -print | xargs grep -n 'hostnames'
+  
   - （13）查找当前目录中以一个小写字母开头，最后是4到9加上.log结束的文件
   - find . -name '[a-z]*[4-9].log' -print
+  
   - （14）在test目录查找不在test4子目录查找
   - find test -path 'test/test4' -prune -o -print
+  
   - （15）实例1：查找更改时间比文件log2012.log新但比文件log2017.log旧的文件
   -  find -newer log2012.log ! -newer log2017.log
   - 使用depth选项：
@@ -986,7 +986,7 @@
   - r ：读权限，用数字4表示
   - w ：写权限，用数字2表示
   - x ：执行权限，用数字1表示  
-  - - ：删除权限，用数字0表示
+  - \- ：删除权限，用数字0表示
   - s ：特殊权限
 
   - 实例：
