@@ -1096,7 +1096,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - s：从前光标位置处开始,以输入的文本替代指定数目的字符
 
 ​
-  ### 3.VI/VIM 编辑保存
+  ### 编辑保存
   - 按ESC键 跳到命令模式，然后：
   - :w 保存文件但不退出vi
   - :w file 将修改另外保存到file中，不退出vi
