@@ -778,7 +778,6 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - more +3 text.txt 显示文件中从第3行起的内容
   - ls -l | more -5 在所列出文件目录详细信息，借助管道使每次显示5行
 
-
  ## 11、less命令
   - less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动，而且 less 在查看之前不会加载整个文件。
 
@@ -1007,10 +1006,8 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - -T 列出文件系统类型
 
   ### 实例：
-
   - （1）显示磁盘使用情况
   - df -l
-
   - （2）以易读方式列出所有文件系统及其类型
   - df -haT
 
@@ -1095,7 +1092,6 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - R：替换当前字符及其后的字符,直至按ESC键
   - s：从前光标位置处开始,以输入的文本替代指定数目的字符
 
-​
   ### 编辑保存
   - 按ESC键 跳到命令模式，然后：
   - :w 保存文件但不退出vi
