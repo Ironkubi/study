@@ -1010,6 +1010,75 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
 
 
+# 配置网关
+命令行输入：systemctl start NetworkManager
+命令行输入：nmcli c reload ifcfg-ens33
+
+在运行docker的时候是看不到任何界面的，但是有的时候为了 debug方便，我们需要看容器里到底在干什么。
+所以，docker-selenium提供了debug模式。
+
+输入命令：sudo docker pull selenium/hub
+输入命令：sudo docker pull selenium/node-chrome
+
+debug模式
+输入命令：docker pull selenium/node-chrome-debug
+输入命令：docker pull selenium/node-firefox-debug
+
+如要本地调试的镜像
+输入命令：docker pull selenium/standalone-chrome-debug
+输入命令：docker pull selenium/standalone-firefox-debug
+
+输入命令：docker images
+
+
+第一步，启动 selenium-hub
+    输入命令：docker run -d -p 5555:4444 --name selenium_hub selenium/hub
+
+第二步，启动 selenium/node-chrome-debug，注册到hub节点上
+    输入命令：docker run -d -p 5901:5900 --link selenium_hub:hub --shm-size=512m selenium/node-chrome-debug
+
+第三步，启动 selenium/node-firefox-debug，注册到hub节点上
+    输入命令：docker run -d -p 5902:5900 --link selenium_hub:hub --shm-size=512m selenium/node-firefox-debug
+
+
+
+# 说明
+-p 5555:4444 将容器的5900端口映射到docker的5901端口，访问Docker的5901端口即可访问到node容器；
+-d 在后台运行
+--name 给这个容器起一个容易明白的名字，这里我就直接把这个容器成为hub。
+-shm-size参数：docker默认的共享内存/dev/shm只有64m，有时导致chrome崩溃，该参数增加共享内存大小到512m.*
+
+
+查看当前运行容器
+    命令行输入：docker ps 
+    命令行输入：docker rm -f containe id
+查看当前存在的所有容器
+    命令行输入：docker ps -a
+
+在浏览器输入http://192.168.188.30:4444/grid/console，查看是否运行起来
+
+VNC 默认密码为：secret
+
+
+
+# 执行脚本 
+
+from selenium import webdriver
+
+chrome_capabilities ={
+    "browserName": "chrome",
+    "version": "",
+    "platform": "ANY",
+    "javascriptEnabled": True,
+    # "marionette": True,
+}
+browser = webdriver.Remote("http://192.168.188.30:5555/wd/hub", desired_capabilities=chrome_capabilities)
+browser.get("http://www.163.com")
+browser.get_screenshot_as_file(r"D:/sample/chrome.png")
+browser.quit()
+
+
+
 # 六、自动化
   12、自动化测试selenium 显式等待和隐式等待
 
