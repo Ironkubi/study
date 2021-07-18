@@ -618,9 +618,30 @@
 
  ## 0、配置网关
  
-    vi /etc/sysconfig/network-scripts/ifcfg-ens33
+    1、虚拟机网络模式选择： NET模式
     
-    重启网关：systemctl start NetworkManager
+    2、centos下修改静态IP
+
+    # 添加DNS地址，打开/etc/resolv.conf文件，添加DNS如下
+    nameserver 180.76.76.76
+    nameserver 8.8.8.8
+
+    # 修改、添加网关配置文件，打开/etc/sysconfig/network-scripts/ifcfg-eth33文件，修改为以下内容
+    
+    # 修改如下配置信息
+    BOOTPROTO="dhcp"  # 是否启动DHCP：none为禁用DHCP；static为使用静态ip地址；设置DHCP为使用DHCP服务
+    DEFROUTE="yes"  # 就是default route，是否把这个网卡设置为ipv4默认路由
+    ONBOOT="yes"  # 启动或者重启网络时是否启动该设备：yes是启用；no是禁用
+    
+    # 添加如下配置信息
+    IPADDR=192.168.188.30    # IP地址，自己设置的IP静态地址，前三位和主机的IP一样
+    GATEWAY=192.168.188.2    # 网关和主机的一样
+    NETMASK=255.255.255.0  
+    DNS1=114.114.114.114     # NDS1
+    DNS2=8.8.8.8             # NDS2
+
+ 
+    重启网络：systemctl start NetworkManager
     重启网关文件：nmcli c reload ifcfg-ens33
 
  ## 1、ls 查看目录文件 
