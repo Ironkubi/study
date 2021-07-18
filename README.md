@@ -1045,7 +1045,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
  ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
 
-  - docker-selenium项目将传统的selenium集成在docker容器中，方便使用和携带。另外还包括了用于调试的 headless 浏览器、VNC server等工具，用于调试和开发。  
+    Docker-Selenium项目将传统的selenium集成在docker容器中，方便使用和携带。另外还包括了用于调试的 headless 浏览器、VNC server等工具，用于调试和开发。  
    
   ### 背景
                
