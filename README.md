@@ -617,7 +617,7 @@
 # 七、Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
 
- ## 配置网关
+ ## 0、配置网关
  
     重启网关：systemctl start NetworkManager
     重启网关文件：nmcli c reload ifcfg-ens33
@@ -660,32 +660,37 @@
     rmdir -p parent/child/child11  当parent子目录被删除后使它也成为空目录的话，则顺便一并删除
 
  ## 7、mv 移动/修改文件名
-  - mv test.log test1.txt  将文件test.log重命名为test1.txt
-  - mv llog1.txt log2.txt log3.txt /test3  将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中
-  - mv -i log1.txt log2.txt  将文件file1改名为file2，如果file2已经存在，则询问是否覆盖
-  - mv * ../  移动当前文件夹下的所有文件到上一级目录
+ 
+    mv test.log test1.txt  将文件test.log重命名为test1.txt  
+    mv llog1.txt log2.txt log3.txt /test3  将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中  
+    mv -i log1.txt log2.txt  将文件file1改名为file2，如果file2已经存在，则询问是否覆盖  
+    mv * ../  移动当前文件夹下的所有文件到上一级目录  
 
- ## 8、cp 复制  
-  - -i  提示
-  - -r  复制目录及目录内所有项目  
-  - -a  复制的文件与原文件时间一样 
-  - cp -ai a.txt test  复制a.txt到test目录下，保持原文件时间,如果原文件存在提示是否覆盖  
-  - cp -s a.txt link_a.txt  为a.txt建议一个链接（快捷方式）  
+ ## 8、cp 复制
+ 
+    -i  提示
+    -r  复制目录及目录内所有项目  
+    -a  复制的文件与原文件时间一样 
+    cp -ai a.txt test  复制a.txt到test目录下，保持原文件时间,如果原文件存在提示是否覆盖  
+    cp -s a.txt link_a.txt  为a.txt建议一个链接（快捷方式）  
 
  ## 9、cat 显示文件详情
+ 
   ### cat主要有三大功能：
-   - ​cat filename 一次显示整个文件
-   - cat > filename 从键盘创建一个文件，只能创建新文件,不能编辑已有文件.
-   - cat file1 file2 > file 将几个文件合并为一个文件
   
-  - -b对非空输出行号
-  - -n输出所有行号
-  - ​cat -n log2012.log log2013.log 把log2012.log的文件内容加上行号后输入 log2013.log 这个文件里
-  - cat -b log2012.log log2013.log log.log 把log2012.log和log2013.log的文件内容加上行号（空白行不加）之后将内容附加到 log.log 里
-  - cat >log.txt <<EOF 使用here doc生成新文件
+    cat filename 一次显示整个文件  
+    cat > filename 从键盘创建一个文件，只能创建新文件,不能编辑已有文件.  
+    cat file1 file2 > file 将几个文件合并为一个文件  
+  
+    -b对非空输出行号  
+    -n输出所有行号  
+    cat -n log2012.log log2013.log 把log2012.log的文件内容加上行号后输入 log2013.log 这个文件里  
+    cat -b log2012.log log2013.log log.log 把log2012.log和log2013.log的文件内容加上行号（空白行不加）之后将内容附加到 log.log 里  
+    cat >log.txt <<EOF 使用here doc生成新文件  
 
  ## 10、more　分页显示
-  - 功能类似于cat, more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示 
+ 
+    功能类似于cat, more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示   
 ​  
   ### 命令参数：
   - +n 从笫n行开始显示
