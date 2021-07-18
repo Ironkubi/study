@@ -1042,20 +1042,21 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - 重启网关文件：nmcli c reload ifcfg-ens33
 
  ## 下载对应的容器
-  - 在运行docker的时候是看不到任何界面的，但是有的时候为了debug方便，我们需要看容器里到底在干什么。所以，docker-selenium提供了debug模式。
+    在运行docker的时候是看不到任何界面的，但是有的时候为了debug方便，我们需要看容器里到底在干什么。所以，docker-selenium提供了debug模式。
 
-  - 输入命令：sudo docker pull selenium/hub
-  - 输入命令：sudo docker pull selenium/node-chrome
+    输入命令：sudo docker pull selenium/hub
+    输入命令：sudo docker pull selenium/node-chrome
 
-  - debug模式
-  - 输入命令：docker pull selenium/node-chrome-debug
-  - 输入命令：docker pull selenium/node-firefox-debug
+    debug模式:
+    
+    输入命令：docker pull selenium/node-chrome-debug
+    输入命令：docker pull selenium/node-firefox-debug
 
-  - 如要本地调试的镜像
-  - 输入命令：docker pull selenium/standalone-chrome-debug
-  - 输入命令：docker pull selenium/standalone-firefox-debug
+    如要本地调试的镜像:
+    输入命令：docker pull selenium/standalone-chrome-debug
+    输入命令：docker pull selenium/standalone-firefox-debug
 
-  - 查看镜像：docker images
+    查看镜像：docker images
 
   ### 启动镜像
   - 第一步，启动 selenium-hub
