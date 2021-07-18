@@ -651,42 +651,42 @@
 
  ## 5、rm 删除文件
  
-    rm -i *.log  删除任何.log文件；删除前逐一询问确认
-    rm -rf test  删除test子目录及子目录中所有档案删除,并且不用一一确认 
-    rm -- -f*  删除以-f开头的文件
+    rm -i *.log    删除任何.log文件；删除前逐一询问确认
+    rm -rf test    删除test子目录及子目录中所有档案删除,并且不用一一确认 
+    rm -- -f*    删除以-f开头的文件
 
  ## 6、rmdir 删除空目录
  
-    rmdir -p parent/child/child11  当parent子目录被删除后使它也成为空目录的话，则顺便一并删除
+    rmdir -p parent/child/child11    当parent子目录被删除后使它也成为空目录的话，则顺便一并删除
 
  ## 7、mv 移动/修改文件名
  
-    mv test.log test1.txt  将文件test.log重命名为test1.txt  
-    mv llog1.txt log2.txt log3.txt /test3  将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中  
-    mv -i log1.txt log2.txt  将文件file1改名为file2，如果file2已经存在，则询问是否覆盖  
-    mv * ../  移动当前文件夹下的所有文件到上一级目录  
+    mv test.log test1.txt    将文件test.log重命名为test1.txt  
+    mv llog1.txt log2.txt log3.txt /test3    将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中  
+    mv -i log1.txt log2.txt    将文件file1改名为file2，如果file2已经存在，则询问是否覆盖  
+    mv * ../   移动当前文件夹下的所有文件到上一级目录  
 
  ## 8、cp 复制
  
-    -i  提示
-    -r  复制目录及目录内所有项目  
-    -a  复制的文件与原文件时间一样 
-    cp -ai a.txt test  复制a.txt到test目录下，保持原文件时间,如果原文件存在提示是否覆盖  
-    cp -s a.txt link_a.txt  为a.txt建议一个链接（快捷方式）  
+    -i   提示
+    -r   复制目录及目录内所有项目  
+    -a   复制的文件与原文件时间一样 
+    cp -ai a.txt test   复制a.txt到test目录下，保持原文件时间,如果原文件存在提示是否覆盖  
+    cp -s a.txt link_a.txt   为a.txt建议一个链接（快捷方式）  
 
  ## 9、cat 显示文件详情
  
   ### cat主要有三大功能：
   
-    cat filename 一次显示整个文件  
-    cat > filename 从键盘创建一个文件，只能创建新文件,不能编辑已有文件.  
-    cat file1 file2 > file 将几个文件合并为一个文件  
+    cat filename    一次显示整个文件  
+    cat > filename    从键盘创建一个文件，只能创建新文件,不能编辑已有文件.  
+    cat file1 file2 > file    将几个文件合并为一个文件  
   
     -b对非空输出行号  
     -n输出所有行号  
-    cat -n log2012.log log2013.log 把log2012.log的文件内容加上行号后输入 log2013.log 这个文件里  
-    cat -b log2012.log log2013.log log.log 把log2012.log和log2013.log的文件内容加上行号（空白行不加）之后将内容附加到 log.log 里  
-    cat >log.txt <<EOF 使用here doc生成新文件  
+    cat -n log2012.log log2013.log   把log2012.log的文件内容加上行号后输入 log2013.log 这个文件里  
+    cat -b log2012.log log2013.log log.log   把log2012.log和log2013.log的文件内容加上行号（空白行不加）之后将内容附加到 log.log 里  
+    cat >log.txt <<EOF   使用here doc生成新文件  
 
  ## 10、more　分页显示
  
@@ -905,51 +905,56 @@
   - grep -E 'ed|at' test.txt  显示包含ed或者at字符的内容行
 
  ## 18、chmod　访问权限
-  ### 常用参数：
-  - -c 当发生改变时，报告处理信息
-  - -R 处理指定目录以及其子目录下所有文件
+ 
+    常用参数：
+    -c   当发生改变时，报告处理信息
+    -R   处理指定目录以及其子目录下所有文件
   
-  ### 权限范围：
-  - u ：目录或者文件的当前的用户
-  - g ：目录或者文件的当前的群组
-  - o ：除了目录或者文件的当前用户或群组之外的用户或者群组
-  - a ：所有的用户及群组
+    权限范围：
+    u ：  目录或者文件的当前的用户
+    g ：  目录或者文件的当前的群组
+    o ：  除了目录或者文件的当前用户或群组之外的用户或者群组
+    a ：  所有的用户及群组
 
-  ### 权限代号：
-  - r ：读权限，用数字4表示
-  - w ：写权限，用数字2表示
-  - x ：执行权限，用数字1表示  
-  - \- ：删除权限，用数字0表示
-  - s ：特殊权限
+    权限代号：
+    r ：  读权限，用数字4表示
+    w ：  写权限，用数字2表示
+    x ：  执行权限，用数字1表示  
+    - ：  删除权限，用数字0表示
+    s ：  特殊权限
 
-  ### 实例：
-  - chmod a+x t.log  增加文件t.log所有用户可执行权限
-  - chmod u=r t.log -c  撤销原来所有的权限，然后使拥有者具有可读权限,并输出处理信息
-  - chmod 751 t.log -c（或者：chmod u=rwx,g=rx,o=x t.log -c)  给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限
-  - chmod u+r,g+r,o+r -R text/ -c  将test目录及其子目录所有文件添加可读权限
+    实例：
+    chmod a+x t.log    增加文件t.log所有用户可执行权限
+    chmod u=r t.log -c    撤销原来所有的权限，然后使拥有者具有可读权限,并输出处理信息
+    chmod 751 t.log -c（或者：chmod u=rwx,g=rx,o=x t.log -c)    给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限
+    chmod u+r,g+r,o+r -R text/ -c    将test目录及其子目录所有文件添加可读权限
 
  ## 19、chown　改为指定的用户或组
-  - -c 显示更改的部分的信息
-  - -R 处理指定目录及子目录
+ 
+    -c 显示更改的部分的信息
+    -R 处理指定目录及子目录
   
-  - hown -c mail:mail log2012.log 改变拥有者和群组 并显示改变信息
-  - chown -c :mail t.log 改变文件群组
-  - chown -cR mail: test/ 改变文件夹及子文件目录属主及属组为mail
+    实例：
+    chown -c mail:mail log2012.log   改变拥有者和群组 并显示改变信息
+    chown -c :mail t.log   改变文件群组
+    chown -cR mail: test/   改变文件夹及子文件目录属主及属组为mail
 
  ## 20、df　显示磁盘空间
-  - 显示磁盘空间使用情况。获取硬盘被占用了多少空间，目前还剩下多少空间等信息，如果没有文件名被指定，则所有当前被挂载的文件系统的可用空间将被显示。默认情况下，磁盘空间将以 1KB 为单位进行显示，除非环境变量 POSIXLY_CORRECT 被指定，那样将以512字节为单位进行显示
-  - -a 全部文件系统列表
-  - -h 以方便阅读的方式显示信息
-  - -i 显示inode信息
-  - -k 区块为1024字节
-  - -l 只显示本地磁盘
-  - -T 列出文件系统类型
+ 
+    显示磁盘空间使用情况。获取硬盘被占用了多少空间，目前还剩下多少空间等信息，如果没有文件名被指定，则所有当前被挂载的文件系统的可用空间将被显示。默认情况下，磁盘空间将以 1KB 为单位进行显示，除非环境变量 POSIXLY_CORRECT 被指定，那样将以512字节为单位进行显示  
+    -a   全部文件系统列表  
+    -h   以方便阅读的方式显示信息  
+    -i   显示inode信息  
+    -k   区块为1024字节  
+    -l   只显示本地磁盘  
+    -T   列出文件系统类型  
 
-  ### 实例：
-  - （1）显示磁盘使用情况
-  - df -l
-  - （2）以易读方式列出所有文件系统及其类型
-  - df -haT
+    实例：
+    （1）显示磁盘使用情况
+      df -l
+    
+    （2）以易读方式列出所有文件系统及其类型
+      df -haT
 
  ## 21、date　显示时间
   - 显示或设定系统的日期与时间
@@ -986,25 +991,28 @@
   - date -d next-month +%Y%m(下个月是几月)
 
  ## 22、ps　查看进程
-  - ps -ef 显示当前所有进程环境变量及进程间关系
-  - ps -A 显示当前所有进程
-  - ps -aux | grep apache 与grep联用查找某进程
-  - s aux | grep '(cron|syslog)' 找出与 cron 与 syslog 这两个服务有关的 PID 号码
+ 
+    ps -ef 显示当前所有进程环境变量及进程间关系
+    ps -A 显示当前所有进程
+    ps -aux | grep apache 与grep联用查找某进程
+    ps aux | grep '(cron|syslog)' 找出与 cron 与 syslog 这两个服务有关的 PID 号码
 
  ## 23、kill　杀死进程
-  - kill -9 $(ps -ef | grep pro1) 先使用ps查找进程pro1，然后用kill杀掉
+ 
+    kill -9 $(ps -ef | grep pro1) 先使用ps查找进程pro1，然后用kill杀掉
 
  ## 24、free　显示内存使用情况
-  ### 显示内存使用情况
-   - free
-   - free -k
-   - free -m
+  
+    显示内存使用情况
+    free
+    free -k
+    free -m
 
-  ### 以总和的形式显示内存的使用信息
-   - free -t
+    以总和的形式显示内存的使用信息
+    free -t
 
-  ### 周期性查询内存使用情况
-   - free -s 10
+    周期性查询内存使用情况
+    free -s 10
 
  ## 25、VI 和vim 编辑文本
   - vi filename :打开或新建文件,并将光标置于第一行首
