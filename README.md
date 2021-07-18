@@ -1043,10 +1043,24 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 # 八、Docker
  ## 基本命令
 
- ## [docker-selenium](https://www.lfhacks.com/tech/selenium-docker)
+ ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
 
-   docker-selenium项目将传统的selenium集成在docker容器中，方便使用和携带。另外还包括了用于调试的 headless 浏览器、VNC server等工具，用于调试和开发。  
+  - docker-selenium项目将传统的selenium集成在docker容器中，方便使用和携带。另外还包括了用于调试的 headless 浏览器、VNC server等工具，用于调试和开发。  
    
+  - 背景
+               
+        Selenium（官网链接）是我们开展web ui自动化测试的利器，可以很方便的用代码模拟人工在浏览器上的操作，实现 BDD（Behavior-driven development），节约大量的人力。
+
+        然而，selenium在实际使用又有些痛处：
+        往往需要在 windows主机上安装、运行浏览器（比如chrome），甚至同时安装多种浏览器，不利于在 Linux 命令行下自动化执行
+        浏览器版本难以管理，回退到特定的版本比较困难
+        持续集成时需要配置 windows 节点机
+        需要为每种浏览器配置 webdriver
+        所以我们期望有这样的特点：
+        在 Linux 命令行下启动 headless 无界面浏览器
+        方便启动和销毁特定版本的浏览器
+        一体化，减少多个服务的安装配置自带webdriver，docker-selenium 项目 实现了上述这些特点。
+        
   ### 下载对应的容器
     在运行docker的时候是看不到任何界面的，但是有的时候为了debug方便，我们需要看容器里到底在干什么。  
     所以，docker-selenium提供了debug模式。 
