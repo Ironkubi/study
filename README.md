@@ -614,21 +614,23 @@
 # 六、Jenkins
 ##
 
-# 七、Linux[菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
+# 七、Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
 
  ## 配置网关
+ 
     重启网关：systemctl start NetworkManager
     重启网关文件：nmcli c reload ifcfg-ens33
 
- ## 1、ls 查看目录文件  
-  - ls -a  列出目录所有文件，包含以.开始的隐藏文件   
-  - ls -A  列出除.及..的其它文   
-  - ls -r  反序排列   
-  - ls -t  以文件修改时间排序   
-  - ls -S  以文件大小排序   
-  - ls -h  以易读大小显示   
-  - ls -l  除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来  
+ ## 1、ls 查看目录文件 
+ 
+    ls -a  列出目录所有文件，包含以.开始的隐藏文件   
+    ls -A  列出除.及..的其它文   
+    ls -r  反序排列   
+    ls -t  以文件修改时间排序   
+    ls -S  以文件大小排序   
+    ls -h  以易读大小显示   
+    ls -l  除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来  
 
  ## 2、cd 切换
   - cd /  进入要目录
