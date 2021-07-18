@@ -1038,11 +1038,11 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
 # 八、Docker
  ## 配置网关
-  - 命令行输入：systemctl start NetworkManager
-  - 命令行输入：nmcli c reload ifcfg-ens33
+  - 重启网关：systemctl start NetworkManager
+  - 重启网关文件：nmcli c reload ifcfg-ens33
 
-  - 在运行docker的时候是看不到任何界面的，但是有的时候为了 debug方便，我们需要看容器里到底在干什么。
-  - 所以，docker-selenium提供了debug模式。
+ ## 下载对应的容器
+  - 在运行docker的时候是看不到任何界面的，但是有的时候为了debug方便，我们需要看容器里到底在干什么。所以，docker-selenium提供了debug模式。
 
   - 输入命令：sudo docker pull selenium/hub
   - 输入命令：sudo docker pull selenium/node-chrome
@@ -1055,9 +1055,9 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
   - 输入命令：docker pull selenium/standalone-chrome-debug
   - 输入命令：docker pull selenium/standalone-firefox-debug
 
-  - 输入命令：docker images
+  - 查看镜像：docker images
 
-
+  ### 启动镜像
   - 第一步，启动 selenium-hub
       - 输入命令：docker run -d -p 5555:4444 --name selenium_hub selenium/hub
 
@@ -1068,7 +1068,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
       - 输入命令：docker run -d -p 5902:5900 --link selenium_hub:hub --shm-size=512m selenium/node-firefox-debug
 
 
- ## 说明
+  ### 说明
   - -p 5555:4444 将容器的5900端口映射到docker的5901端口，访问Docker的5901端口即可访问到node容器；
   - -d 在后台运行
   - --name 给这个容器起一个容易明白的名字，这里我就直接把这个容器成为hub。
@@ -1082,9 +1082,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
       - 命令行输入：docker ps -a
 
   - 在浏览器输入http://192.168.188.30:4444/grid/console，查看是否运行起来
-
   - VNC 默认密码为：secret
-
 
 
  ## 执行脚本 
@@ -1117,13 +1115,12 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
     3、统计字符串中每个字符出现的次数
         a = "a;lskdh!`foiegn``as;ldnf,asd.121,2ljladsfkja`sdijfhaosjlfd,gjsdfg.as.dl"
        1) 使用方法库
-     
           from collections import Counter
           b = Counter(a)
           print(b)
           # {'a': 7, ';': 2, 'l': 6, 's': 8, 'k': 2, 'd': 8, 'h': 2, '!': 1, '`': 4, 'f': 6, 'o': 2, 'i': 2, 'e': 1, 'g': 3, 'n': 2, ',': 3, '.': 3, '1': 2, '2': 2, 'j': 5}
+       
        2) 使用字典处理
-     
           dict_ = {}
           for i in a:
             if i in dict_:
@@ -1133,6 +1130,3 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
           print(dict_)
           # {'a': 7, ';': 2, 'l': 6, 's': 8, 'k': 2, 'd': 8, 'h': 2, '!': 1, '`': 4, 'f': 6, 'o': 2, 'i': 2, 'e': 1, 'g': 3, 'n': 2, ',': 3, '.': 3, '1': 2, '2': 2, 'j': 5}
           
-          
-
-
