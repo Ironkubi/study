@@ -623,7 +623,7 @@
     2、centos下修改静态IP
 
     # 添加DNS地址，打开/etc/resolv.conf文件，添加DNS如下
-    nameserver 180.76.76.76
+    nameserver 114.114.114.114
     nameserver 8.8.8.8
 
     # 修改、添加网关配置文件，打开/etc/sysconfig/network-scripts/ifcfg-eth33文件，修改为以下内容
