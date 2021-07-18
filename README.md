@@ -1038,11 +1038,12 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
 # 八、Docker
  ## 配置网关
-  - 重启网关：systemctl start NetworkManager
-  - 重启网关文件：nmcli c reload ifcfg-ens33
+    重启网关：systemctl start NetworkManager
+    重启网关文件：nmcli c reload ifcfg-ens33
 
  ## 下载对应的容器
-    在运行docker的时候是看不到任何界面的，但是有的时候为了debug方便，我们需要看容器里到底在干什么。所以，docker-selenium提供了debug模式。
+    在运行docker的时候是看不到任何界面的，但是有的时候为了debug方便，我们需要看容器里到底在干什么。  
+    所以，docker-selenium提供了debug模式。 
 
     输入命令：sudo docker pull selenium/hub
     输入命令：sudo docker pull selenium/node-chrome
