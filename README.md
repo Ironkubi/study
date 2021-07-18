@@ -587,7 +587,34 @@
 　　Mercury LoadRunner Analysis：用于分析测试结果  
 
 
-# 五、Linux & Docker
+# 五、自动化
+  12、自动化测试selenium 显式等待和隐式等待
+
+    显式等待就是有条件的等待
+    隐式等待就是无条件的等待
+    显式等待：
+
+    # 设置等待时间
+      WebDriverWait(driver, 3, 0.5) #传入三个参数，第一个是浏览器驱动，第二个是等待多少秒，第三个是每隔多少秒监控一次
+      原理：指定一个等待条件，和一个最长等待时间，程序会判断在等待时间内条件是否满足，如果满足则返回，如果不满足会继续等待，超过时间就会抛出异常
+     隐式等待：
+
+      browser.implicitly_wait(10) #直接等待10秒钟
+      当查找元素或元素并没有立即出现的时候，隐式等待将等待一段时间再查找 DOM，默认的时间是0
+   13、pytest如何管理测试用例？
+
+    1）掌握案例规则，如以test_开头，类以Test命名等
+
+    2）案例文件执行单个py如何执行，多个文件夹的管理方式
+
+
+                     
+
+          
+# 六、Jenkins
+##
+
+# 七、Linux
 Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
  ## 1、ls 查看目录文件  
@@ -1009,101 +1036,74 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
     使用>>指令向文件追加内容，原内容将保存。  
 
 
+# 八、Docker
+ ## 配置网关
+  - 命令行输入：systemctl start NetworkManager
+  - 命令行输入：nmcli c reload ifcfg-ens33
 
-# 配置网关
-命令行输入：systemctl start NetworkManager
-命令行输入：nmcli c reload ifcfg-ens33
+  - 在运行docker的时候是看不到任何界面的，但是有的时候为了 debug方便，我们需要看容器里到底在干什么。
+  - 所以，docker-selenium提供了debug模式。
 
-在运行docker的时候是看不到任何界面的，但是有的时候为了 debug方便，我们需要看容器里到底在干什么。
-所以，docker-selenium提供了debug模式。
+  - 输入命令：sudo docker pull selenium/hub
+  - 输入命令：sudo docker pull selenium/node-chrome
 
-输入命令：sudo docker pull selenium/hub
-输入命令：sudo docker pull selenium/node-chrome
+  - debug模式
+  - 输入命令：docker pull selenium/node-chrome-debug
+  - 输入命令：docker pull selenium/node-firefox-debug
 
-debug模式
-输入命令：docker pull selenium/node-chrome-debug
-输入命令：docker pull selenium/node-firefox-debug
+  - 如要本地调试的镜像
+  - 输入命令：docker pull selenium/standalone-chrome-debug
+  - 输入命令：docker pull selenium/standalone-firefox-debug
 
-如要本地调试的镜像
-输入命令：docker pull selenium/standalone-chrome-debug
-输入命令：docker pull selenium/standalone-firefox-debug
-
-输入命令：docker images
-
-
-第一步，启动 selenium-hub
-    输入命令：docker run -d -p 5555:4444 --name selenium_hub selenium/hub
-
-第二步，启动 selenium/node-chrome-debug，注册到hub节点上
-    输入命令：docker run -d -p 5901:5900 --link selenium_hub:hub --shm-size=512m selenium/node-chrome-debug
-
-第三步，启动 selenium/node-firefox-debug，注册到hub节点上
-    输入命令：docker run -d -p 5902:5900 --link selenium_hub:hub --shm-size=512m selenium/node-firefox-debug
+  - 输入命令：docker images
 
 
+  - 第一步，启动 selenium-hub
+      - 输入命令：docker run -d -p 5555:4444 --name selenium_hub selenium/hub
 
-# 说明
--p 5555:4444 将容器的5900端口映射到docker的5901端口，访问Docker的5901端口即可访问到node容器；
--d 在后台运行
---name 给这个容器起一个容易明白的名字，这里我就直接把这个容器成为hub。
--shm-size参数：docker默认的共享内存/dev/shm只有64m，有时导致chrome崩溃，该参数增加共享内存大小到512m.*
+  - 第二步，启动 selenium/node-chrome-debug，注册到hub节点上
+      - 输入命令：docker run -d -p 5901:5900 --link selenium_hub:hub --shm-size=512m selenium/node-chrome-debug
 
-
-查看当前运行容器
-    命令行输入：docker ps 
-    命令行输入：docker rm -f containe id
-查看当前存在的所有容器
-    命令行输入：docker ps -a
-
-在浏览器输入http://192.168.188.30:4444/grid/console，查看是否运行起来
-
-VNC 默认密码为：secret
+  - 第三步，启动 selenium/node-firefox-debug，注册到hub节点上
+      - 输入命令：docker run -d -p 5902:5900 --link selenium_hub:hub --shm-size=512m selenium/node-firefox-debug
 
 
+ ## 说明
+  - -p 5555:4444 将容器的5900端口映射到docker的5901端口，访问Docker的5901端口即可访问到node容器；
+  - -d 在后台运行
+  - --name 给这个容器起一个容易明白的名字，这里我就直接把这个容器成为hub。
+  - -shm-size参数：docker默认的共享内存/dev/shm只有64m，有时导致chrome崩溃，该参数增加共享内存大小到512m.*
 
-# 执行脚本 
 
-from selenium import webdriver
+  - 查看当前运行容器
+      - 命令行输入：docker ps 
+      - 命令行输入：docker rm -f containe id
+  - 查看当前存在的所有容器
+      - 命令行输入：docker ps -a
 
-chrome_capabilities ={
+  - 在浏览器输入http://192.168.188.30:4444/grid/console，查看是否运行起来
+
+  - VNC 默认密码为：secret
+
+
+
+ ## 执行脚本 
+
+    from selenium import webdriver
+
+    chrome_capabilities ={
     "browserName": "chrome",
     "version": "",
     "platform": "ANY",
     "javascriptEnabled": True,
     # "marionette": True,
-}
-browser = webdriver.Remote("http://192.168.188.30:5555/wd/hub", desired_capabilities=chrome_capabilities)
-browser.get("http://www.163.com")
-browser.get_screenshot_as_file(r"D:/sample/chrome.png")
-browser.quit()
+    }
+    browser = webdriver.Remote("http://192.168.188.30:5555/wd/hub", desired_capabilities=chrome_capabilities)
+    browser.get("http://www.163.com")
+    browser.get_screenshot_as_file(r"D:/sample/chrome.png")
+    browser.quit()
 
-
-
-# 六、自动化
-  12、自动化测试selenium 显式等待和隐式等待
-
-    显式等待就是有条件的等待
-    隐式等待就是无条件的等待
-    显式等待：
-
-    # 设置等待时间
-      WebDriverWait(driver, 3, 0.5) #传入三个参数，第一个是浏览器驱动，第二个是等待多少秒，第三个是每隔多少秒监控一次
-      原理：指定一个等待条件，和一个最长等待时间，程序会判断在等待时间内条件是否满足，如果满足则返回，如果不满足会继续等待，超过时间就会抛出异常
-     隐式等待：
-
-      browser.implicitly_wait(10) #直接等待10秒钟
-      当查找元素或元素并没有立即出现的时候，隐式等待将等待一段时间再查找 DOM，默认的时间是0
-   13、pytest如何管理测试用例？
-
-    1）掌握案例规则，如以test_开头，类以Test命名等
-
-    2）案例文件执行单个py如何执行，多个文件夹的管理方式
-
-
-                     
-
-
-# 七、python
+# 六、python
 
     1、装饰器介绍
     装饰器也是一个函数，它是让其他函数在不改变变动的前提下增加额外的功能。
@@ -1134,7 +1134,5 @@ browser.quit()
           # {'a': 7, ';': 2, 'l': 6, 's': 8, 'k': 2, 'd': 8, 'h': 2, '!': 1, '`': 4, 'f': 6, 'o': 2, 'i': 2, 'e': 1, 'g': 3, 'n': 2, ',': 3, '.': 3, '1': 2, '2': 2, 'j': 5}
           
           
-          
-# 八、Jenkins
-##
+
 
