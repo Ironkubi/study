@@ -1041,8 +1041,9 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
 
 # 八、Docker
- ## Docker基本命令
- 
+ ## [Docker](https://www.runoob.com/docker/centos-docker-install.html)基本命令
+  
+   - docker run -it ubuntu /bin/bash
    - 查看镜像：docker images
    
  ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
@@ -1073,6 +1074,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
      - 自带webdriver，docker-selenium项目实现了上述这些特点。  
         
   ### 下载对应的容器
+  
     在运行docker的时候是看不到任何界面的，但是有的时候为了debug方便，我们需要看容器里到底在干什么。  
     所以，docker-selenium提供了debug模式。 
 
@@ -1092,6 +1094,7 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
  
  
  ## 启动镜像
+ 
   - 第一步，启动 selenium-hub
     - 输入命令：docker run -d -p 5555:4444 --name selenium_hub selenium/hub
 
@@ -1115,11 +1118,13 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
    
 
  ## 查看控制台
+ 
   - standalone 的容器正常运行后，用浏览器打开 http://容器地址:4444
     - 在浏览器输入http://192.168.188.30:4444/grid/console，查看是否运行起来
   
 
  ## 远程桌面调试
+ 
   - Windows 环境下可以使用 VNC viewer 连接 selenium debug 容器
   - VNC 默认密码为：secret
   
