@@ -616,7 +616,6 @@
 
 # 七、Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
-
  ## 0、配置网关
  
     vi /etc/sysconfig/network-scripts/ifcfg-ens33
