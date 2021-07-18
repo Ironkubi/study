@@ -1043,11 +1043,10 @@ Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 # 八、Docker
  ## 基本命令
 
- ## docker-selenium[docker-selenium](https://www.runoob.com/w3cnote/linux-common-command-2.html)
+ ## [docker-selenium](https://www.lfhacks.com/tech/selenium-docker)
 
-   项目将传统的selenium集成在docker容器中，方便使用和携带。另外还包括了用于调试的 headless 浏览器、VNC server等工具，用于调试和开发。  
+   docker-selenium项目将传统的selenium集成在docker容器中，方便使用和携带。另外还包括了用于调试的 headless 浏览器、VNC server等工具，用于调试和开发。  
    
-
   ### 下载对应的容器
     在运行docker的时候是看不到任何界面的，但是有的时候为了debug方便，我们需要看容器里到底在干什么。  
     所以，docker-selenium提供了debug模式。 
