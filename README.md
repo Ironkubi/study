@@ -1172,7 +1172,7 @@
     browser.get_screenshot_as_file(r"D:/sample/chrome.png")
     browser.quit()
 
-# 六、python
+# 九、python
 
     1、装饰器介绍
     装饰器也是一个函数，它是让其他函数在不改变变动的前提下增加额外的功能。
