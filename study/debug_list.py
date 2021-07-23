@@ -1,0 +1,43 @@
+# -*-coding:utf-8 -*-
+# File : debug_list.py
+# @Time : 2021/7/22 16:17
+# @Author : Sf
+# version : python 3.7.8
+
+
+"""实现列表去重的方法"""
+list1 = [11,12,13,12,14,15,16,13]
+a = set(list1)
+print("列表去重-先转为set：%s %s" % (type(a), a))
+b = [x for x in a]
+print("列表去重：%s \n" % a)
+
+
+
+"""列表推导式求列表所有奇数并构造新列表"""
+list2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+res = [i for i in a if i%2==1]
+print("列表推导式求列表所有奇数并构造新列表:", res, "\n")
+
+
+
+"""列表[1,2,3,4,5],请使用map()函数输出[1,4,9,16,25]，并使用列表推导式提取出大于10的数，最终输出[16,25]
+map（）函数第一个参数是fun，第二个参数是一般是list，第三个参数可以写list，也可以不写，根据需求"""
+list3 = [1,2,3,4,5]
+def fn(x):
+    return x**2
+res = map(fn,list2)
+res = [i for i in res if i >10]
+print("列表利用map()函数输出: %s \n" % res)
+
+
+
+"""列表合并"""
+list4 = [1,5,7,9]
+list5 = [2,2,6,8]
+
+list4.extend(list5)   # 合并
+print("列表合并:", list4)
+
+list4.sort(reverse=False)   # 排序
+print("列表排序:", list4)
