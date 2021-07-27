@@ -35,9 +35,29 @@ print("列表利用map()函数输出: %s \n" % res)
 """列表合并"""
 list4 = [1,5,7,9]
 list5 = [2,2,6,8]
-
 list4.extend(list5)   # 合并
 print("列表合并:", list4)
-
 list4.sort(reverse=False)   # 排序
-print("列表排序:", list4)
+print("列表排序:", list4, "\n")
+
+
+"""[[1,2],[3,4],[5,6]]一行代码展开该列表，得出[1,2,3,4,5]"""
+list6 = [[1,2],[3,4],[5,6]]
+x = [j for i in list6 for j in i]
+print("多列表展开为一个列表:",x)
+
+
+# 求两个列表的交集、差集、并集
+a = [1,2,3,4]
+b = [4,3,5,6]
+jj1 = [i for i in a if i in b]
+jj2 = list(set(a).intersection(set(b)))
+bj1 = list(set(a).union(set(b)))
+
+cj1 = list(set(b).difference(set(b)))
+cj2 = list(set(a).difference(set(b)))
+print("交集：",jj1)
+print("交集：",jj2)
+print("并集：",bj1)
+print("差集：",cj1)
+print("差集：",cj2)
