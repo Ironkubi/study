@@ -1,5 +1,5 @@
 # -*-coding:utf-8 -*-
-# File : decorator.py
+# File : debug_decorator.py
 # @Time : 2021/5/26 11:31
 # @Author : Sf
 # version : python 3.7.8
