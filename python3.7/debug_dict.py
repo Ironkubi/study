@@ -23,3 +23,4 @@ for i in list:
     new_dict[i[0]]=i[1]
 
 print("新字典", new_dict)
+
