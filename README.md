@@ -592,15 +592,19 @@
   
    ### Jmeter-插件下载并安装
    
-    1、进入apache官网https://www.apache.org/dist/jmeter/binaries下载Windows版本JMeter；
-    2、进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
-    3、打开jmeter，打开选项菜单底部的plugins-manager
-    4、选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
-    5、然后重新打开jmeter，就可以在监听器里添加使用了。
-    6、进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
-    7、Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
+   - 下载安装
+     进入apache官网https://www.apache.org/dist/jmeter/binaries下载Windows版本JMeter；
+   - 下载插件
+     进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
+     打开jmeter，打开选项菜单底部的plugins-manager
+     选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
+     然后重新打开jmeter，就可以在监听器里添加使用了。
+   - 设置中文界面
+     进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
+   - 接口返回，出现乱码
+     Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
 
-输入prev.setDataEncoding("utf-8"); 
+
    
    ### Jmeter-http接口脚本
    
