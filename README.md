@@ -590,25 +590,28 @@
   
   ## Jmeter 
   
-   ### Jmeter-插件下载并安装
-   
-   - 下载安装
+   - Jmeter-下载安装
      进入apache官网https://www.apache.org/dist/jmeter/binaries下载Windows版本JMeter；
-   - 下载插件
+     
+   - Jmeter-下载插件
      进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
      打开jmeter，打开选项菜单底部的plugins-manager
      选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
      然后重新打开jmeter，就可以在监听器里添加使用了。
-   - 设置中文界面
+     
+   - Jmeter-设置中文界面
      进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
-   - 接口返回，出现乱码
+   
+   - Jmeter-接口返回，出现乱码
      Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
 
-
-   
-   ### Jmeter-http接口脚本
-   
-    一般分五个步骤:（1）添加线程组 （2）添加http请求 （3）在http请求中写入接入url、路径、请求方式和参数 （4）添加查看结果树 （5）调用接口、查看返回值
+   - Jmeter-http接口脚本
+      一般分五个步骤:
+       （1）添加线程组 
+       （2）添加http请求 
+       （3）在http请求中写入接入url、路径、请求方式和参数 
+       （4）添加查看结果树 
+       （5）调用接口、查看返回值
     
     
  ## LoadRunner分为哪三个模块？请简述各模块的主要功能。
