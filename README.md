@@ -362,6 +362,7 @@
   - 定期评审，对测试进行评估和总结，调整测试内容
 
 
+
 # 二、网络协议
 
  ## http与https有何区别
@@ -446,6 +447,7 @@
      
 
 
+
 # 三、数据库
 
    1、左连接、右连接和全连接
@@ -469,6 +471,7 @@
  
  
  
+
  
 # 四、接口测试及工具类
 
@@ -687,6 +690,7 @@
 　　Mercury LoadRunner Analysis：用于分析测试结果  
 
 
+
 # 五、UI & 接口自动化
   
   ## 自动化测试框架unittest与pytest的区别？
@@ -773,8 +777,11 @@
           
           
 
+
+
 # 六、Jenkins
 ##
+
 
 
 # 七、Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
@@ -1250,6 +1257,7 @@
 
      2、追加文件内容
       echo "Intel Galileo" >> test.txt  使用>>指令向文件追加内容，原内容将保存。  
+
 
 
 # 八、Docker
