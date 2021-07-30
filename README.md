@@ -566,38 +566,38 @@
   
   Postman是谷歌的一款接口测试插件，它使用简单，支持用例管理，支持get、post、文件上传、响应验证、变量管理、环境参数管理等功能，可以批量运行，并支持用例导出、导入。
 
-  
-  
+***
+
  ## [Jmeter](https://blog.csdn.net/github_27109687/article/details/71968662)
   
-    jmeter是一款100%纯Java编写的免费开源的工具，它主要用来做接口+压力测试，相比loadrunner来说，它内存占用小，免费开源，轻巧方便、无需安装，越来越被大众所喜爱。
+   jmeter是一款100%纯Java编写的免费开源的工具，它主要用来做接口+压力测试，相比loadrunner来说，它内存占用小，免费开源，轻巧方便、无需安装，越来越被大众所喜爱。
   
  - Jmeter-下载安装  
    
-    进入apache官网https://www.apache.org/dist/jmeter/binaries下载Windows版本JMeter；
+   进入apache官网https://www.apache.org/dist/jmeter/binaries下载Windows版本JMeter；
      
  - Jmeter-下载插件 
     
-     进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
-     打开jmeter，打开选项菜单底部的plugins-manager
-     选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
-     然后重新打开jmeter，就可以在监听器里添加使用了。
+    进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
+    打开jmeter，打开选项菜单底部的plugins-manager
+    选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
+    然后重新打开jmeter，就可以在监听器里添加使用了。
      
  - Jmeter-设置中文界面 
     
-     进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
+    进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
    
  - Jmeter-接口返回，出现乱码  
    
-     Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
+    Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
 
  - Jmeter-http接口脚本,一般分五个步骤:  
       
-     - 添加线程组   
-     - 添加http请求   
-     - 在http请求中写入接入url、路径、请求方式和参数   
-     - 添加查看结果树   
-     - 调用接口、查看返回值  
+    - 添加线程组   
+    - 添加http请求   
+    - 在http请求中写入接入url、路径、请求方式和参数   
+    - 添加查看结果树   
+    - 调用接口、查看返回值  
      
  - Jmeter-中跟踪重定向和自动重定向区别？
 
