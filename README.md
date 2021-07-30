@@ -491,6 +491,7 @@
  ## 接口组成
 
    - 首先，接口文档应该包含以下内容：
+   
      - 1、接口说明
      - 2、调用url
      - 3、请求方法（get\post）
@@ -571,26 +572,26 @@
   
     jmeter是一款100%纯Java编写的免费开源的工具，它主要用来做接口+压力测试，相比loadrunner来说，它内存占用小，免费开源，轻巧方便、无需安装，越来越被大众所喜爱。
   
-  ### Jmeter-下载安装  
+ - Jmeter-下载安装  
    
     进入apache官网https://www.apache.org/dist/jmeter/binaries下载Windows版本JMeter；
      
-  ### Jmeter-下载插件 
+ - Jmeter-下载插件 
     
      进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
      打开jmeter，打开选项菜单底部的plugins-manager
      选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
      然后重新打开jmeter，就可以在监听器里添加使用了。
      
-  ### Jmeter-设置中文界面 
+ - Jmeter-设置中文界面 
     
      进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
    
-  ### Jmeter-接口返回，出现乱码  
+ - Jmeter-接口返回，出现乱码  
    
      Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
 
-  ### Jmeter-http接口脚本,一般分五个步骤:  
+ - Jmeter-http接口脚本,一般分五个步骤:  
       
      - 添加线程组   
      - 添加http请求   
@@ -598,12 +599,12 @@
      - 添加查看结果树   
      - 调用接口、查看返回值  
      
-  ### Jmeter-中跟踪重定向和自动重定向区别？
+ - Jmeter-中跟踪重定向和自动重定向区别？
 
      - 跟踪重定向通俗的理解就是跟踪请求执行的过程，并记录一些信息给开发者看到，我们一般可以在结果日志和监控中看到
      - 自动重定向是不用跟踪请求执行过程，也不用记录
     
-  ### Jmeter-操作数据库oracle
+ - Jmeter-操作数据库oracle
      - 配置oracle数据库连接
        Database URL: jdbc:oracle:thin:@192.168.100.171:1521:test
        JDBC Driver class：oracle.jdbc.driver.OracleDriver
@@ -611,7 +612,7 @@
        Password：密码
        注意：替换数据库IP地址、端口号、库名以及用户名、密码。
        
-  ###  Jmeter-操作数据库mysql 
+ - Jmeter-操作数据库mysql 
      - 配置mysql数据库连接
        Database URL: jdbc:mysql:// 数据库地址 /库名
        JDBC Driver class：com.mysql.jdbc.Driver
@@ -619,7 +620,7 @@
        Password：密码
        注意：替换数据库IP地址、端口号、库名以及用户名、密码。
        
-  ### Jmeter组件执行顺序与作用域
+ - Jmeter组件执行顺序与作用域
      1、Jmeter重要组件：
         1）配置元件---Config Element：
 　　     用于初始化默认值和变量，以便后续采样器使用。配置元件大其作用域的初始阶段处理，配置元件仅对其所在的测试树分支有效，如，在同一个作用域的任何采样器前。
@@ -673,7 +674,7 @@
       配置元件（Config Elemnet）-->用户自定义变量组件（User Defined Variables）：这个组件不管放在哪个位置，它定义的变量都会被整个线程所共享。
    
     
-  ###  Jmeter-压力测试
+ - Jmeter-压力测试
      - 压力测试分两种场景  
        第一种是单场景，压一个接口的；
        第二种是混合场景，多个有关联的接口。压测时间，一般场景都运行10-15分钟。如果是疲劳测试，可以压一天或一周，根据实际情况来定。
