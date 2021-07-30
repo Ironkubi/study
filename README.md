@@ -572,18 +572,18 @@
   
    jmeter是一款100%纯Java编写的免费开源的工具，它主要用来做接口+压力测试，相比loadrunner来说，它内存占用小，免费开源，轻巧方便、无需安装，越来越被大众所喜爱。
   
- - Jmeter-下载安装  
+ - **Jmeter-下载安装：**  
    
    进入apache官网https://www.apache.org/dist/jmeter/binaries下载Windows版本JMeter；
      
- - Jmeter-下载插件 
+ - **Jmeter-下载插件：** 
     
     进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
     打开jmeter，打开选项菜单底部的plugins-manager
     选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
     然后重新打开jmeter，就可以在监听器里添加使用了。
      
- - Jmeter-设置中文界面 
+ - **Jmeter-设置中文界面：** 
     
     进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
    
