@@ -5,6 +5,13 @@
 # version : python 3.7.8
 
 
+#python中创建字典的多种方法
+dict = {}
+dict['key'] = 'value'
+dict = {'key': "value", "key2": "value2"}
+#dict = dict(key=value, key2=value)
+
+
 """字典如何删除键和合并两个字典 del和update方法"""
 dic = {"name":"zs", "age":"18"}
 dic2 = {"name":"ls"}
