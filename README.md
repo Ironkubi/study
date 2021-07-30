@@ -587,11 +587,11 @@
     
     进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
    
- - Jmeter-接口返回，出现乱码  
+ - **Jmeter-接口返回，出现乱码**  
    
     Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
 
- - Jmeter-http接口脚本,一般分五个步骤:  
+ - **Jmeter-http接口脚本,一般分五个步骤: ** 
       
     - 添加线程组   
     - 添加http请求   
@@ -599,28 +599,28 @@
     - 添加查看结果树   
     - 调用接口、查看返回值  
      
- - Jmeter-中跟踪重定向和自动重定向区别？
+ - **Jmeter-中跟踪重定向和自动重定向区别？**
 
      - 跟踪重定向通俗的理解就是跟踪请求执行的过程，并记录一些信息给开发者看到，我们一般可以在结果日志和监控中看到
      - 自动重定向是不用跟踪请求执行过程，也不用记录
     
- - Jmeter-操作数据库oracle
+ - **Jmeter-操作数据库**
+ 
      - 配置oracle数据库连接
        Database URL: jdbc:oracle:thin:@192.168.100.171:1521:test
        JDBC Driver class：oracle.jdbc.driver.OracleDriver
        Username：账号
        Password：密码
-       注意：替换数据库IP地址、端口号、库名以及用户名、密码。
        
- - Jmeter-操作数据库mysql 
      - 配置mysql数据库连接
        Database URL: jdbc:mysql:// 数据库地址 /库名
        JDBC Driver class：com.mysql.jdbc.Driver
        Username：账号
        Password：密码
+       
        注意：替换数据库IP地址、端口号、库名以及用户名、密码。
        
- - Jmeter组件执行顺序与作用域
+ - **Jmeter组件执行顺序与作用域**
      1、Jmeter重要组件：
         1）配置元件---Config Element：
 　　     用于初始化默认值和变量，以便后续采样器使用。配置元件大其作用域的初始阶段处理，配置元件仅对其所在的测试树分支有效，如，在同一个作用域的任何采样器前。
