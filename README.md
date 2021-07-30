@@ -578,18 +578,18 @@
      
  - **Jmeter-下载插件：** 
     
-    进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
-    打开jmeter，打开选项菜单底部的plugins-manager
-    选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
-    然后重新打开jmeter，就可以在监听器里添加使用了。
+   进入下载插件网页：https://jmeter-plugins.org/install/Install/ 下载plugin-manager.jar 并放在jmeter的lib/ext文件夹下
+   打开jmeter，打开选项菜单底部的plugins-manager
+   选择Available Plugins -勾选jpgc -standard set -右下角勾选apply changes and restart jmeter 安装
+   然后重新打开jmeter，就可以在监听器里添加使用了。
      
  - **Jmeter-设置中文界面：** 
     
-    进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
+   进入Jmeter的bin目录下，找到jmeter.properties文件,在37行后面添加“language=zh_CN”，保存之后再打开jmeter就永久变为中文环境了
    
  - **Jmeter-接口返回，出现乱码**  
    
-    Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
+   Jmeter在接口返回的时候，响应内容如果有中文可能会显示乱码，需添加后置处理器：BeanShell PostProcessor，输入“prev.setDataEncoding("utf-8");”，再次请求，响应结果中已经没有乱码了
 
  - **Jmeter-http接口脚本,一般分五个步骤:** 
       
@@ -622,7 +622,7 @@
        
  - **Jmeter组件执行顺序与作用域**
  
-    1、Jmeter重要组件：  
+    - *1、Jmeter重要组件：*  
       1) 配置元件---Config Element：  
 　　   用于初始化默认值和变量，以便后续采样器使用。配置元件大其作用域的初始阶段处理，配置元件仅对其所在的测试树分支有效，如，在同一个作用域的任何采样器前。
 
@@ -647,7 +647,7 @@
       8) 逻辑控制器---Controller：  
 　　     逻辑控制器可以帮助用户控制JMeter的测试逻辑，特别是何时发送请求。逻辑控制器可以改变其子测试元件的请求执行顺序。
 
-     2、组件执行顺序：
+    - *2、组件执行顺序：*
 
       测试计划的元素执行是有序的，通过以下方式执行：
        1–配置元件（Config Element）
@@ -658,7 +658,7 @@
        6–断言（Assertions，只在有结果可用情况下执行）
        7–监听器（Listener，只在有结果可用情况下执行）
 
-     3、组件作用域： 
+    - *3、组件作用域：* 
      
       元件收集其作用范围的每一个sampler元件的信息并呈现，在jmeter中，元件的作用域是靠测试计划的的树型结构中元件的父子关系来确定的，作用域的原则是： 
      
@@ -667,7 +667,7 @@
       除采样器 和 逻辑控制器 元件外，其他6类元件，如果是某个sampler的子节点，则该元件只对其父子节点起作用。  
       除采样器和逻辑控制器元件外的其他6类元件，如果其父节点不是sampler ，则其作用域是该元件父节点下的其他所有后代节点（包括子节点，子节点的子节点等）。
       
-     4、特殊说明：  
+    - *4、特殊说明：*  
 
       配置元件（Config Elemnet）-->用户自定义变量组件（User Defined Variables）：这个组件不管放在哪个位置，它定义的变量都会被整个线程所共享。
    
