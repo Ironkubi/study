@@ -610,13 +610,20 @@
      - 自动重定向是不用跟踪请求执行过程，也不用记录
     
    - Jmeter-操作数据库oracle
-   
      - 配置oracle数据库连接
-       jdbc:oracle:thin:@192.168.100.171:1521:test
-       oracle.jdbc.driver.OracleDriver
-       username
-       password
-       注意：替换数据库IP地址、端口号、实例名以及用户名、密码。
+       Database URL: jdbc:oracle:thin:@192.168.100.171:1521:test
+       JDBC Driver class：oracle.jdbc.driver.OracleDriver
+       Username：账号
+       Password：密码
+       注意：替换数据库IP地址、端口号、库名以及用户名、密码。
+       
+   - Jmeter-操作数据库mysql 
+     - 配置mysql数据库连接
+       Database URL: jdbc:mysql:// 数据库地址 /库名
+       JDBC Driver class：com.mysql.jdbc.Driver
+       Username：账号
+       Password：密码
+       注意：替换数据库IP地址、端口号、库名以及用户名、密码。
     
    - Jmeter-压力测试
      - 压力测试分两种场景  
