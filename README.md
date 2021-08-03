@@ -820,7 +820,7 @@
    adb shell pm list packages -s
 
   列出除了系统应用的第三方应用包名： 
-   adb shell pm list packages -3 
+  adb shell pm list packages -3 
                      
   aapt dump badging xxx.apk(安装包名称)
   
