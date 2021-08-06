@@ -833,6 +833,10 @@
   通过AccessibilityId定位（content-desc）
   find_element_by_accessibility_id("勾选宝贝")
           
+          
+  java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalone-3.9.1.jar -role node -hub "http://10.224.70.158:8888/grid/register/" -port 5558 -browser "browserName=chrome,maxInstances=2,version=65,platform=WINDOWS"
+
+  java  -Dwebdriver.firefox.driver="geckodriver.exe" -jar selenium-server-standalone-3.9.1.jar -role node -hub "http://10.224.70.158:8888/grid/register" -port 5558  -browser "browserName=firefox,maxInstances=2,version=56,platform=WINDOWS"
 
 
 # 六、Jenkins
@@ -841,7 +845,7 @@
 
 # 七、Linux [菜鸟教程](https://www.runoob.com/w3cnote/linux-common-command-2.html)
 
- ## 0、配置网关
+ ## **配置网关**
  
     1、虚拟机网络模式选择： NET模式
     
@@ -868,6 +872,49 @@
  
     重启网络：systemctl start NetworkManager
     重启网关文件：nmcli c reload ifcfg-ens33
+    
+  ## **JAVA 安装**
+  
+   - 检查旧版本：rpm -aq | grep java
+   - 卸载旧版本：rpm -e --nodeps java-1.7.0-openjdk
+   - 新建一个java目录存放JDK： mkdir /usr/java  
+   - 修改java目录权限，否上上传不了： chmod 777 /usr/java/
+
+   - 解压命令：tar zxvf 压缩包名称 （例如：tar zxvf jdk-8u152-linux-x64.tar.gz）
+   - 删除命令：rm -f 压缩包名称 （例如 rm -f jdk-8u152-linux-x64.tar.gz）
+   - 编辑命令：vi /etc/profile
+      export JAVA_HOME=/usr/java/jdk1.8.0_152
+      export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+      export PATH=$PATH:$JAVA_HOME/bin
+      
+   - source /etc/profile
+   - java -version
+   
+   ## **安装 Android SDK**
+   
+   - Android SDK： https://www.androiddevtools.cn/
+   - mkdir /opt/androidSdk
+   - cd /opt/androidSdk
+   - wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
+   - unzip sdk-tools-linux-3859397.zip
+   
+   - 编辑命令：vi /etc/profile
+     export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+     export PATH=$PATH:/opt/androidSdk/tools/bin
+   - 生效： source /etc/profile
+   
+   - 查看已安装信息: sdkmanager --list
+   - 安装需要的package： sdkmanager "build-tools;26.0.2"
+   - 安装需要的package： sdkmanager "platform-tools"
+   
+   - 编辑命令：vi /etc/profile
+      export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+      export PATH=$PATH:/opt/androidSdk/tools/bin
+      export PATH=$PATH:/opt/androidSdk/platform-tools
+   - 生效： source /etc/profile
+   
+   - 查看adb版本： adb version
+
 
  ## 1、ls 查看目录文件 
  
@@ -1317,6 +1364,14 @@
 # 八、Docker
  ## [Docker](https://www.runoob.com/docker/centos-docker-install.html)基本命令
   
+   systemctl命令是系统服务管理器指令
+   - 启动docker： systemctl start docker
+   - 停止docker： systemctl stop docker
+   - 重启docker： systemctl restart docker
+   - 查看docker状态： systemctl status docker
+   - 开机启动： systemctl enable docker
+   - 查看docker概要信息: docker info
+   - 查看docker帮助文档: docker ‐‐help
    - docker run -it ubuntu /bin/bash
    - 查看镜像：docker images
    
@@ -1367,7 +1422,7 @@
     查看镜像：docker images
  
  
- ## 启动镜像
+ ### 启动镜像
  
   - 第一步，启动 selenium-hub
     - 输入命令：docker run -d -p 5555:4444 --name selenium_hub selenium/hub
@@ -1391,18 +1446,18 @@
      - 命令行输入：docker ps -a
    
 
- ## 查看控制台
+ ### 查看控制台
  
   - standalone 的容器正常运行后，用浏览器打开 http://容器地址:4444
     - 在浏览器输入http://192.168.188.30:4444/grid/console，查看是否运行起来
   
 
- ## 远程桌面调试
+ ### 远程桌面调试
  
   - Windows 环境下可以使用 VNC viewer 连接 selenium debug 容器
   - VNC 默认密码为：secret
   
- ## 执行脚本 
+ ### 执行脚本 
 
     from selenium import webdriver
 
@@ -1418,6 +1473,16 @@
     browser.get_screenshot_as_file(r"D:/sample/chrome.png")
     browser.quit()
 
+ ## docker-appnium
+   搜索镜像： docker search appium
+   
+   拉取镜像： docker pull appium/appium
+   
+   启动容器： docker run --privileged -d -p 4723:4723 --name container-appium appium/appium
+   --privileged： 使用该参数，容器内的root真正拥有root权限，否则容器内的root只是外部的一个普通用户权限
+   -d: 以分离模式启动容器，分离模式指的是后台运行；而前景模式指的是前台运行，默认分离模式设置为False;
+   -p: 指定要映射的IP和端口；
+   --name: 为容器指定一个名字
 
 # 九、python
 
