@@ -877,8 +877,8 @@
   
    > 检查旧版本：rpm -aq | grep java  
    > 卸载旧版本：rpm -e --nodeps java-1.7.0-openjdk  
-   > 新建一个java目录存放JDK： mkdir /usr/java    
-   > 修改java目录权限，否上上传不了： chmod 777 /usr/java/  
+   > 新建一个java目录存放JDK：mkdir /usr/java    
+   > 修改java目录权限，否上上传不了：chmod 777 /usr/java/  
 
    > 解压命令：tar zxvf 压缩包名称 （例如：tar zxvf jdk-8u152-linux-x64.tar.gz）  
    > 删除命令：rm -f 压缩包名称 （例如 rm -f jdk-8u152-linux-x64.tar.gz）
