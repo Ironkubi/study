@@ -470,7 +470,7 @@
     sum:求和     ：select sum(chengji) from 学生表 where name='张三'；
 
 
-*****
+***
 ***
 # 四、接口测试及工具类
 
@@ -840,6 +840,8 @@
      find_element_by_class_name("android.widget.CheckBox")  
      通过AccessibilityId定位(content-desc)  
      find_element_by_accessibility_id("勾选宝贝")  
+     
+     
 ***
 ***
 # 六、Jenkins
@@ -1383,19 +1385,20 @@
    
  ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
 
-   - Docker-Selenium项目将传统的selenium集成在docker容器中，方便使用和携带。另外还包括了用于调试的 headless 浏览器、VNC server等工具，用于调试和开发。  
-   - Docker-Selenium项目（镜像仓库,代码仓库 ）是将 selenium、webdriver、VNC server、chrome（或者firefox）集成在一个docker镜像里的项目。提供如下的功能：
-     - 代替原有的 remote webdriver
-     - 单个容器就能提供全套 selenium+webdriver+headless 浏览器的功能
-     - 几个容器配合就能完全代替 selenium grid（目前仅限chrome和firefox）
-     - 包含 VNC server（远程桌面），方便远程调试 headless 浏览器
-     - 全部在 linux 环境下执行，无需设置 windows 节点机，方便自动化
-     - 方便自定义 Dockerfile ，用户可以自己制作镜像
+   > Docker-Selenium项目将传统的selenium集成在docker容器中，方便使用和携带。另外还包括了用于调试的 headless 浏览器、VNC server等工具，用于调试和开发。    
+   
+   > Docker-Selenium项目（镜像仓库,代码仓库 ）是将 selenium、webdriver、VNC server、chrome（或者firefox）集成在一个docker镜像里的项目。提供如下的功能：  
+     代替原有的 remote webdriver
+     单个容器就能提供全套 selenium+webdriver+headless 浏览器的功能
+     几个容器配合就能完全代替 selenium grid（目前仅限chrome和firefox）
+     包含 VNC server（远程桌面），方便远程调试 headless 浏览器
+     全部在 linux 环境下执行，无需设置 windows 节点机，方便自动化
+     方便自定义 Dockerfile ，用户可以自己制作镜像
      
      
   ### 背景
                
-   - Selenium（官网链接）是我们开展web ui自动化测试的利器，可以很方便的用代码模拟人工在浏览器上的操作，实现 BDD（Behavior-driven development），节约大量的人力。
+   > Selenium（官网链接）是我们开展web ui自动化测试的利器，可以很方便的用代码模拟人工在浏览器上的操作，实现 BDD（Behavior-driven development），节约大量的人力。  
 
    - 然而，selenium在实际使用又有些痛处：  
      - 往往需要在windows主机上安装、运行浏览器（比如chrome），甚至同时安装多种浏览器，不利于在Linux命令行下自动化执行  
