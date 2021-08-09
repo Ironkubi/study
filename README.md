@@ -451,23 +451,17 @@
 
 
 ***
-# 三、数据库
+# 三、数据库  
 
-   1、左连接、右连接和全连接
+   > 左连接、右连接和全连接  
+     左连接：左边有的，右边没有的为null  
+     右连接：左边没有的，右边有的为null  
+     内连接：显示左边右边共有的  
 
-     左连接：左边有的，右边没有的为null
-
-     右连接：左边没有的，右边有的为null
-
-     内连接：显示左边右边共有的
-
-  2、数据库中sum和count的区别以及使用
-
-    一般面试会把sum与order by 分组一起使用
-
-    count:统计你查询出来的数据记录条数  ：select count(*) from 学生表；
-
-    sum:求和     ：select sum(chengji) from 学生表 where name='张三'；
+   > 数据库中sum和count的区别以及使用  
+    一般面试会把sum与order by 分组一起使用    
+    count:统计你查询出来的数据记录条数  ：select count(*) from 学生表；  
+    sum:求和     ：select sum(chengji) from 学生表 where name='张三'；  
 
 
 ***
