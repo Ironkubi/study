@@ -875,10 +875,10 @@
     
   ## **JAVA 安装**
   
-   - 检查旧版本：rpm -aq | grep java
-   - 卸载旧版本：rpm -e --nodeps java-1.7.0-openjdk
-   - 新建一个java目录存放JDK： mkdir /usr/java  
-   - 修改java目录权限，否上上传不了： chmod 777 /usr/java/
+   > 检查旧版本：rpm -aq | grep java
+   > 卸载旧版本：rpm -e --nodeps java-1.7.0-openjdk
+   > 新建一个java目录存放JDK： mkdir /usr/java  
+   > 修改java目录权限，否上上传不了： chmod 777 /usr/java/
 
    - 解压命令：tar zxvf 压缩包名称 （例如：tar zxvf jdk-8u152-linux-x64.tar.gz）
    - 删除命令：rm -f 压缩包名称 （例如 rm -f jdk-8u152-linux-x64.tar.gz）
@@ -1376,8 +1376,17 @@
        * 查看docker概要信息: docker info
        * 查看docker帮助文档: docker ‐‐help
        * 查看镜像：docker images
-       * 查看运行容器：docker ps
-       * 查看容器：docker ps -a
+       * 查看运行的容器：docker ps
+       * 查看所有的容器：docker ps -a
+       * 停止运行容器：docker stop <容器 ID>
+       * 运行容器：docker run -it <容器 ID> /bin/bash
+       * 进入容器：docker exec -it <容器 ID> /bin/bash
+       * 删除容器：docker rm -f <容器 ID>
+       * 查看容器内的标准输出：docker logs -f <容器 ID>
+       
+       * docker build -t nginx:v3 .
+       
+       
    
  ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
 
@@ -1478,11 +1487,10 @@
     browser.quit()
 
  ## docker-appnium
-   搜索镜像： docker search appium
-   
-   拉取镜像： docker pull appium/appium
-   
-   启动容器： docker run --privileged -d -p 4723:4723 --name container-appium appium/appium
+ 
+   * 搜索镜像： docker search appium
+   * 拉取镜像： docker pull appium/appium
+   * 启动容器： docker run --privileged -d -p 4723:4723 --name container-appium appium/appium
    --privileged： 使用该参数，容器内的root真正拥有root权限，否则容器内的root只是外部的一个普通用户权限
    -d: 以分离模式启动容器，分离模式指的是后台运行；而前景模式指的是前台运行，默认分离模式设置为False;
    -p: 指定要映射的IP和端口；
