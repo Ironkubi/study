@@ -884,9 +884,9 @@
    > 删除命令：rm -f 压缩包名称 （例如 rm -f jdk-8u152-linux-x64.tar.gz）
    
    > 编辑命令：vi /etc/profile  
-   > export JAVA_HOME=/usr/java/jdk1.8.0_152  
-   > export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar  
-   > export PATH=$PATH:$JAVA_HOME/bin  
+     export JAVA_HOME=/usr/java/jdk1.8.0_152  
+     export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar  
+     export PATH=$PATH:$JAVA_HOME/bin  
       
    > 生效文件：source /etc/profile  
    > 查看版本：java -version
@@ -911,9 +911,9 @@
    > 安装需要的package： sdkmanager "platform-tools"  
     
    > 编辑命令：vi /etc/profile  
-      export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL  
-      export PATH=$PATH:/opt/androidSdk/tools/bin  
-      export PATH=$PATH:/opt/androidSdk/platform-tools  
+     export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL  
+     export PATH=$PATH:/opt/androidSdk/tools/bin  
+     export PATH=$PATH:/opt/androidSdk/platform-tools  
       
    > 文件生效： source /etc/profile  
    
