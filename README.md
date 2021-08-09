@@ -967,7 +967,7 @@
     cp -ai a.txt test   复制a.txt到test目录下，保持原文件时间,如果原文件存在提示是否覆盖    
     cp -s a.txt link_a.txt   为a.txt建议一个链接（快捷方式）    
 
- ## 9、cat 显示文件详情
+ ## **cat 显示文件详情**
  
     # cat主要有三大功能：
     cat filename    一次显示整个文件  
@@ -980,7 +980,7 @@
     cat -b log2012.log log2013.log log.log   把log2012.log和log2013.log的文件内容加上行号（空白行不加）之后将内容附加到 log.log 里  
     cat >log.txt <<EOF   使用here doc生成新文件  
 
- ## 10、more　分页显示
+ ## **more　分页显示**
  
     功能类似于cat, more会以一页一页的显示方便使用者逐页阅读，而最基本的指令就是按空白键（space）就往下一页显示，按 b 键就会往回（back）一页显示   
     
@@ -1010,7 +1010,7 @@
     more +3 text.txt 显示文件中从第3行起的内容
     ls -l | more -5 在所列出文件目录详细信息，借助管道使每次显示5行
 
- ## 11、less命令
+ ## **less命令**
  
     less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动，而且 less 在查看之前不会加载整个文件。
 
@@ -1041,7 +1041,7 @@
     less 1.log 2.log    查看多个文件
 
 
- ## 12、head　从头ｎ行文本内容
+ ## **head　从头ｎ行文本内容**
  
     head 用来显示档案的开头至标准输出中，默认head命令打印其相应文件的开头 10 行。
 
@@ -1053,7 +1053,7 @@
     head -c 20 log2014.log  显示 1.log 文件前 20 字节
     head -n -10 t.log  显示 t.log最后 10 行
 
- ## 13、tail　从尾ｎ行文本
+ ## **tail　从尾ｎ行文本**
  
     用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件。
 
@@ -1065,7 +1065,7 @@
     ping 127.0.0.1 > ping.log &（后台运行：可使用jobs -l查看，也可使用fg将其移到前台运行）
     tail -f ping.log（查看日志）
 
- ## 14、which　查看可执行文件的位置
+ ## **which　查看可执行文件的位置**
  
     在linux要查找某个文件，但不知道放在哪里了，可以使用下面的一些命令来搜索：
     ​which 查看可执行文件的位置。
@@ -1082,8 +1082,7 @@
     which which 查看which  
     which cd（显示不存在，因为cd是内建命令，而which查找显示是PATH中的命令） 查看cd
 
-
- ## 15、locate命令
+ ## **locate命令**
  
     locate通过搜寻系统内建文档数据库达到快速找到档案，数据库由updatedb程序来更新，updatedb是由cron daemon周期性调用的。默认情况下locate命令在搜寻数据库时比由整个由硬盘资料来搜寻资料来得快，但较差劲的是locate所找到的档案若是最近才建立或 刚更名的，可能会找不到，在内定值中，updatedb每天会跑一次，可以由修改crontab来更新设定值。(etc/crontab)。
     locate与find命令相似，可以使用如*、?等进行正则匹配查找
@@ -1096,7 +1095,7 @@
     ​locate /etc/sh 搜索etc目录下所有以sh开头的文件
     locate -r '^/var.reason$'（其中.表示一个字符，表示任务多个；.*表示任意多个字符） 查找/var目录下，以reason结尾的文件
 
- ## 16、find　文件树中查找文件
+ ## **find　文件树中查找文件**
 
     find -atime -2   查找48小时内修改过的文件
     find ./ -name '*.log'   在当前目录查找 以.log结尾的文件。 ". "代表当前目录
@@ -1169,7 +1168,7 @@
     实例：find 命令从文件系统的根目录开始，查找一个名为 CON.FILE 的文件。 它将首先匹配所有的文件然后再进入子目录中查找
     find / -name "CON.FILE" -depth -print
 
- ## 17、grep　文本搜索命令
+ ## **grep　文本搜索命令**
  
     强大的文本搜索命令，grep(Global Regular Expression Print)全局正则表达式搜索
 
@@ -1197,7 +1196,7 @@
      grep '[x]' test.txt  查找非x开关的行内容
      grep -E 'ed|at' test.txt  显示包含ed或者at字符的内容行
 
- ## 18、chmod　访问权限
+ ## **chmod　访问权限**
  
     常用参数：
     -c   当发生改变时，报告处理信息
@@ -1222,7 +1221,7 @@
     chmod 751 t.log -c（或者：chmod u=rwx,g=rx,o=x t.log -c)    给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限
     chmod u+r,g+r,o+r -R text/ -c    将test目录及其子目录所有文件添加可读权限
 
- ## 19、chown　改为指定的用户或组
+ ## **chown　改为指定的用户或组**
  
     -c 显示更改的部分的信息
     -R 处理指定目录及子目录
@@ -1232,7 +1231,7 @@
     chown -c :mail t.log   改变文件群组
     chown -cR mail: test/   改变文件夹及子文件目录属主及属组为mail
 
- ## 20、df　显示磁盘空间
+ ## **df　显示磁盘空间**
  
     显示磁盘空间使用情况。获取硬盘被占用了多少空间，目前还剩下多少空间等信息，如果没有文件名被指定，则所有当前被挂载的文件系统的可用空间将被显示。默认情况下，磁盘空间将以 1KB 为单位进行显示，除非环境变量 POSIXLY_CORRECT 被指定，那样将以512字节为单位进行显示  
     -a   全部文件系统列表  
@@ -1249,7 +1248,7 @@
     （2）以易读方式列出所有文件系统及其类型
       df -haT
 
- ## 21、date　显示时间
+ ## **date　显示时间**
  
     显示或设定系统的日期与时间
 
@@ -1283,18 +1282,18 @@
       date -d last-month +%Y%m(上个月是几月)
       date -d next-month +%Y%m(下个月是几月)
 
- ## 22、ps　查看进程
+ ## **ps　查看进程**
  
     ps -ef 显示当前所有进程环境变量及进程间关系
     ps -A 显示当前所有进程
     ps -aux | grep apache 与grep联用查找某进程
     ps aux | grep '(cron|syslog)' 找出与 cron 与 syslog 这两个服务有关的 PID 号码
 
- ## 23、kill　杀死进程
+ ## **kill　杀死进程**
  
     kill -9 $(ps -ef | grep pro1) 先使用ps查找进程pro1，然后用kill杀掉
 
- ## 24、free　显示内存使用情况
+ ## **free　显示内存使用情况**
   
     显示内存使用情况
     free
@@ -1307,7 +1306,7 @@
     周期性查询内存使用情况
     free -s 10
 
- ## 25、VI 和vim 编辑文本
+ ## **VI 和vim 编辑文本**
  
     vi filename   :打开或新建文件,并将光标置于第一行首
     vi n filename   ：打开文件,并将光标置于第n行首
@@ -1345,7 +1344,7 @@
     :q!  不保存文件，强制退出vi
     e!   放弃所有修改，从上次保存文件开始再编辑
 
- ## 26、echo指令向文件写入内容
+ ## **echo指令向文件写入内容**
  
     -n 不尾随换行符
     -e 启用解释反斜杠的转义功能
@@ -1358,7 +1357,7 @@
      2、追加文件内容
       echo "Intel Galileo" >> test.txt  使用>>指令向文件追加内容，原内容将保存。  
 
-
+***
 # 八、Docker
 
  ## [Docker](https://www.runoob.com/docker/centos-docker-install.html)基本命令
