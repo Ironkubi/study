@@ -882,10 +882,11 @@
 
    > 解压命令：tar zxvf 压缩包名称 （例如：tar zxvf jdk-8u152-linux-x64.tar.gz）  
    > 删除命令：rm -f 压缩包名称 （例如 rm -f jdk-8u152-linux-x64.tar.gz）
-   > 编辑命令：vi /etc/profile
-      export JAVA_HOME=/usr/java/jdk1.8.0_152
-      export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-      export PATH=$PATH:$JAVA_HOME/bin
+   
+   > 编辑命令：vi /etc/profile  
+   > export JAVA_HOME=/usr/java/jdk1.8.0_152  
+   > export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar  
+   > export PATH=$PATH:$JAVA_HOME/bin  
       
    - source /etc/profile
    - java -version
