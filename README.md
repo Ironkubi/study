@@ -914,7 +914,7 @@
       export PATH=$PATH:/opt/androidSdk/tools/bin  
       export PATH=$PATH:/opt/androidSdk/platform-tools  
       
-   > 生效： source /etc/profile  
+   > 文件生效： source /etc/profile  
    
    > 查看adb版本： adb version  
 
