@@ -847,33 +847,27 @@
 
  ## **配置网关**
  
-    1、虚拟机网络模式选择： NET模式
+   1. 虚拟机网络模式选择： NET模式
     
-    2、centos下修改静态IP
+   2. centos下修改静态IP
+   > 添加DNS地址，打开/etc/resolv.conf文件，添加DNS如下
+       nameserver 114.114.114.114
+       nameserver 8.8.8.8
 
-    # 添加DNS地址，打开/etc/resolv.conf文件，添加DNS如下
-    nameserver 114.114.114.114
-    nameserver 8.8.8.8
+   > 修改、添加网关配置文件，打开/etc/sysconfig/network-scripts/ifcfg-eth33文件，修改为以下内容
+       BOOTPROTO="dhcp"  # 是否启动DHCP：none为禁用DHCP；static为使用静态ip地址；设置DHCP为使用DHCP服务  
+       DEFROUTE="yes"  # 就是default route，是否把这个网卡设置为ipv4默认路由  
+       ONBOOT="yes"  # 启动或者重启网络时是否启动该设备：yes是启用；no是禁用  
+       IPADDR=192.xxx.188.30    # IP地址，自己设置的IP静态地址，前三位和主机的IP一样  
+       GATEWAY=192.xxx.188.2    # 网关和主机的一样  
+       NETMASK=255.255.255.0    
+       DNS1=114.114.114.114     # NDS1  
+       DNS2=8.8.8.8             # NDS2  
 
-    # 修改、添加网关配置文件，打开/etc/sysconfig/network-scripts/ifcfg-eth33文件，修改为以下内容
+   > 重启网络：systemctl start NetworkManager  
+   > 重启网关文件：nmcli c reload ifcfg-ens33  
     
-    # 修改如下配置信息
-    BOOTPROTO="dhcp"  # 是否启动DHCP：none为禁用DHCP；static为使用静态ip地址；设置DHCP为使用DHCP服务
-    DEFROUTE="yes"  # 就是default route，是否把这个网卡设置为ipv4默认路由
-    ONBOOT="yes"  # 启动或者重启网络时是否启动该设备：yes是启用；no是禁用
-    
-    # 添加如下配置信息
-    IPADDR=192.xxx.188.30    # IP地址，自己设置的IP静态地址，前三位和主机的IP一样
-    GATEWAY=192.xxx.188.2    # 网关和主机的一样
-    NETMASK=255.255.255.0  
-    DNS1=114.114.114.114     # NDS1
-    DNS2=8.8.8.8             # NDS2
-
- 
-    重启网络：systemctl start NetworkManager
-    重启网关文件：nmcli c reload ifcfg-ens33
-    
-  ## **JAVA 安装**
+ ## **JAVA 安装**
   
    > 检查旧版本：rpm -aq | grep java  
    > 卸载旧版本：rpm -e --nodeps java-1.7.0-openjdk  
@@ -891,7 +885,7 @@
    > 生效文件：source /etc/profile  
    > 查看版本：java -version
    
-   ## **安装 Android SDK**
+ ## **安装 Android SDK**
    
    > 下载 Android SDK： https://www.androiddevtools.cn/ 
     
@@ -922,13 +916,13 @@
 
  ## 1、ls 查看目录文件 
  
- > ls -a    列出目录所有文件，包含以.开始的隐藏文件    
- > ls -A    列出除.及..的其它文   
- > ls -r    反序排列   
- > ls -t    以文件修改时间排序   
- > ls -S    以文件大小排序   
- > ls -h    以易读大小显示   
- > ls -l    除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来  
+   > ls -a    列出目录所有文件，包含以.开始的隐藏文件    
+   > ls -A    列出除.及..的其它文   
+   > ls -r    反序排列   
+   > ls -t    以文件修改时间排序   
+   > ls -S    以文件大小排序   
+   > ls -h    以易读大小显示   
+   > ls -l    除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来  
 
  ## 2、cd 切换
    
