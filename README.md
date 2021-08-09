@@ -1358,26 +1358,27 @@
 
  ## [Docker](https://www.runoob.com/docker/centos-docker-install.html)基本命令
    
-   1. **systemctl命令是系统服务管理器指令:**
-       * 启动docker： systemctl start docker
-       * 停止docker： systemctl stop docker
-       * 重启docker： systemctl restart docker
-       * 查看docker状态： systemctl status docker
-       * 开机启动： systemctl enable docker
+   > **systemctl命令是系统服务管理器指令:**  
+       启动docker： systemctl start docker  
+       停止docker： systemctl stop docker  
+       重启docker： systemctl restart docker  
+       查看docker状态： systemctl status docker  
+       开机启动： systemctl enable docker  
 
-   2. **Docker基本命令**
-       * 查看docker概要信息: docker info
-       * 查看docker帮助文档: docker ‐‐help
-       * 查看镜像：docker images
-       * 查看运行的容器：docker ps
-       * 查看所有的容器：docker ps -a
-       * 停止运行容器：docker stop <容器 ID>
-       * 运行容器：docker run -it <容器 ID> /bin/bash
-       * 进入容器：docker exec -it <容器 ID> /bin/bash
-       * 删除容器：docker rm -f <容器 ID>
-       * 查看容器内的标准输出：docker logs -f <容器 ID>
+   > **Docker基本命令**
+       查看docker概要信息: docker info  
+       查看docker帮助文档: docker ‐‐help  
+       查看镜像：docker images  
+       查看运行的容器：docker ps  
+       查看所有的容器：docker ps -a  
+       停止运行容器：docker stop <容器 ID>  
+       运行容器：docker run -it <容器 ID> /bin/bash  
+       进入容器：docker exec -it <容器 ID> /bin/bash  
+       删除容器：docker rm -f <容器 ID>  
+       查看容器内的标准输出：docker logs -f <容器 ID>  
        
-       * docker build -t nginx:v3 .
+   > **创建镜像**    
+       docker build -t nginx:v3 .  
        
    
  ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
@@ -1494,13 +1495,12 @@
 ***
 # 九、python
 
-  ## 1、装饰器介绍
-  
-    装饰器也是一个函数，它是让其他函数在不改变变动的前提下增加额外的功能。
-    装饰器是一个闭包，把一个函数当作参数返回一个替代版的函数，本质是一个返回函数的函数（即返回值为函数对象）。
-    python3支持用@符号直接将装饰器应用到函数。
-    装饰器工作场景：插入日志、性能测试、事务处理等等。
-    函数被装饰器装饰过后，此函数的属性均已发生变化，如名称变为装饰器的名称。
+   > 1、装饰器介绍  
+    装饰器也是一个函数，它是让其他函数在不改变变动的前提下增加额外的功能。  
+    装饰器是一个闭包，把一个函数当作参数返回一个替代版的函数，本质是一个返回函数的函数（即返回值为函数对象）。  
+    python3支持用@符号直接将装饰器应用到函数。  
+    装饰器工作场景：插入日志、性能测试、事务处理等等。  
+    函数被装饰器装饰过后，此函数的属性均已发生变化，如名称变为装饰器的名称。  
 
   ## 2、什么是python生成器
   
