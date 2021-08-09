@@ -805,10 +805,9 @@
    > 1、unittest默认执行全部用例，也可以通过加载testsuit，执行部分用例；  
    > 2、pytest可以通过@pytest.mark来标记类和方法，pytest.main加入参数("-m")可以只运行标记的类和方法   
 
-
-  ## 自动化测试selenium 显式等待和隐式等待  
-
-   > 显式等待就是有条件的等待   
+  ## Selenium
+   > 显式等待和隐式等待:  
+     显式等待就是有条件的等待   
      隐式等待就是无条件的等待   
      显式等待：  
 
@@ -817,39 +816,34 @@
       原理：指定一个等待条件，和一个最长等待时间，程序会判断在等待时间内条件是否满足，如果满足则返回，如果不满足会继续等待，超过时间就会抛出异常  
    
    > 隐式等待：  
-      browser.implicitly_wait(10) #直接等待10秒钟  
-      当查找元素或元素并没有立即出现的时候，隐式等待将等待一段时间再查找 DOM，默认的时间是0  
+      browser.implicitly_wait(10) #直接等待10秒钟   
+      当查找元素或元素并没有立即出现的时候，隐式等待将等待一段时间再查找 DOM，默认的时间是0    
+   
+   > 分布式运行  
+   java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalone-3.9.1.jar -role node -hub "http://10.224.70.158:8888/grid/register/" -port 5558 -browser "browserName=chrome,maxInstances=2,version=65,platform=WINDOWS"  
+   java -Dwebdriver.firefox.driver="geckodriver.exe" -jar selenium-server-standalone-3.9.1.jar -role node -hub "http://10.224.70.158:8888/grid/register" -port 5558  -browser "browserName=firefox,maxInstances=2,version=56,platform=WINDOWS"  
+
 
   ## Appium 
     
-  1、列出手机装的所有app的包名： 
-   adb shell pm list packages
+   > 1、列出手机装的所有app的包名：   
+     adb shell pm list packages  
 
-  列出系统应用的所有包名： 
-   adb shell pm list packages -s
+   > 列出系统应用的所有包名：   
+     adb shell pm list packages -s  
 
-  列出除了系统应用的第三方应用包名： 
-  adb shell pm list packages -3 
-                     
-  aapt dump badging xxx.apk(安装包名称)
+   > 列出除了系统应用的第三方应用包名：  
+     adb shell pm list packages -3                 
+     aapt dump badging xxx.apk(安装包名称)  
   
-  appium中的定位表达式，继承了selenium中的八大定位表达式
-  
-  通过resrouce-id来定位
-  find_element_by_id("com.taobao.taobao:id/textview_goods_title")
-  通过ClassName定位（class）
-  find_element_by_class_name("android.widget.CheckBox")
-  通过AccessibilityId定位（content-desc）
-  find_element_by_accessibility_id("勾选宝贝")
-          
-          
-  java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalone-3.9.1.jar -role node -hub "http://10.224.70.158:8888/grid/register/" -port 5558 -browser "browserName=chrome,maxInstances=2,version=65,platform=WINDOWS"
-
-  java  -Dwebdriver.firefox.driver="geckodriver.exe" -jar selenium-server-standalone-3.9.1.jar -role node -hub "http://10.224.70.158:8888/grid/register" -port 5558  -browser "browserName=firefox,maxInstances=2,version=56,platform=WINDOWS"
-
-
+   > appium中的定位表达式，继承了selenium中的八大定位表达式  
+     通过resrouce-id来定位  
+     find_element_by_id("com.taobao.taobao:id/textview_goods_title")  
+     通过ClassName定位(class)  
+     find_element_by_class_name("android.widget.CheckBox")  
+     通过AccessibilityId定位(content-desc)  
+     find_element_by_accessibility_id("勾选宝贝")  
 ***
-
 
 ***
 # 六、Jenkins
