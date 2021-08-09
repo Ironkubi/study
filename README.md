@@ -847,9 +847,9 @@
 
  ## **配置网关**
  
-   1. *虚拟机网络模式选择： NET模式*
+   - ***虚拟机网络模式选择： NET模式***
     
-   2. *centos下修改静态IP*
+   - ***centos下修改静态IP***
    > 添加DNS地址，打开/etc/resolv.conf文件，添加DNS如下
        nameserver 114.114.114.114
        nameserver 8.8.8.8
