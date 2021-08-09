@@ -850,11 +850,11 @@
    - ***虚拟机网络模式选择： NET模式***
     
    - ***centos下修改静态IP***  
-   > 添加DNS地址，打开/etc/resolv.conf文件，添加DNS如下  
+   > 添加DNS地址，打开/etc/resolv.conf文件，添加DNS如下：    
        nameserver 114.114.114.114  
        nameserver 8.8.8.8  
 
-   > 修改、添加网关配置文件，打开/etc/sysconfig/network-scripts/ifcfg-eth33文件，修改为以下内容    
+   > 修改、添加网关配置文件，打开/etc/sysconfig/network-scripts/ifcfg-eth33文件，修改为以下内容：      
        BOOTPROTO="dhcp"  # 是否启动DHCP：none为禁用DHCP；static为使用静态ip地址；设置DHCP为使用DHCP服务    
        DEFROUTE="yes"  # 就是default route，是否把这个网卡设置为ipv4默认路由    
        ONBOOT="yes"  # 启动或者重启网络时是否启动该设备：yes是启用；no是禁用   
