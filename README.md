@@ -877,9 +877,9 @@
   
    > 检查旧版本：rpm -aq | grep java  
    > 卸载旧版本：rpm -e --nodeps java-1.7.0-openjdk  
+   
    > 新建一个java目录存放JDK：mkdir /usr/java    
    > 修改java目录权限，否上上传不了：chmod 777 /usr/java/  
-
    > 解压命令：tar zxvf 压缩包名称 （例如：tar zxvf jdk-8u152-linux-x64.tar.gz）  
    > 删除命令：rm -f 压缩包名称 （例如 rm -f jdk-8u152-linux-x64.tar.gz）
    
@@ -888,33 +888,35 @@
    > export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar  
    > export PATH=$PATH:$JAVA_HOME/bin  
       
-   > 生效文件：source /etc/profile
+   > 生效文件：source /etc/profile  
    > 查看版本：java -version
    
    ## **安装 Android SDK**
    
-   - Android SDK： https://www.androiddevtools.cn/
-   - mkdir /opt/androidSdk
-   - cd /opt/androidSdk
-   - wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
-   - unzip sdk-tools-linux-3859397.zip
+   > Android SDK： https://www.androiddevtools.cn/  
+   > mkdir /opt/androidSdk  
+   > cd /opt/androidSdk  
+   > wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip  
+   > unzip sdk-tools-linux-3859397.zip  
    
-   - 编辑命令：vi /etc/profile
-     export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
-     export PATH=$PATH:/opt/androidSdk/tools/bin
-   - 生效： source /etc/profile
+   > 编辑命令：vi /etc/profile  
+     export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL  
+     export PATH=$PATH:/opt/androidSdk/tools/bin  
+     
+   > 生效： source /etc/profile  
    
-   - 查看已安装信息: sdkmanager --list
-   - 安装需要的package： sdkmanager "build-tools;26.0.2"
-   - 安装需要的package： sdkmanager "platform-tools"
+   > 查看已安装信息: sdkmanager --list  
+   > 安装需要的package： sdkmanager "build-tools;26.0.2"  
+   > 安装需要的package： sdkmanager "platform-tools"  
+    
+   > 编辑命令：vi /etc/profile  
+      export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL  
+      export PATH=$PATH:/opt/androidSdk/tools/bin  
+      export PATH=$PATH:/opt/androidSdk/platform-tools  
+      
+   > 生效： source /etc/profile  
    
-   - 编辑命令：vi /etc/profile
-      export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
-      export PATH=$PATH:/opt/androidSdk/tools/bin
-      export PATH=$PATH:/opt/androidSdk/platform-tools
-   - 生效： source /etc/profile
-   
-   - 查看adb版本： adb version
+   > 查看adb版本： adb version  
 
 
  ## 1、ls 查看目录文件 
