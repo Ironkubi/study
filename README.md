@@ -893,7 +893,8 @@
    
    ## **安装 Android SDK**
    
-   > Android SDK： https://www.androiddevtools.cn/  
+   > 下载 Android SDK： https://www.androiddevtools.cn/ 
+    
    > mkdir /opt/androidSdk  
    > cd /opt/androidSdk  
    > wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip  
@@ -903,7 +904,7 @@
      export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL  
      export PATH=$PATH:/opt/androidSdk/tools/bin  
      
-   > 生效： source /etc/profile  
+   > 文件生效： source /etc/profile  
    
    > 查看已安装信息: sdkmanager --list  
    > 安装需要的package： sdkmanager "build-tools;26.0.2"  
