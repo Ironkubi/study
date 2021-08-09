@@ -847,9 +847,9 @@
 
  ## **配置网关**
  
-   1. 虚拟机网络模式选择： NET模式
+   1. *虚拟机网络模式选择： NET模式*
     
-   2. centos下修改静态IP
+   2. *centos下修改静态IP*
    > 添加DNS地址，打开/etc/resolv.conf文件，添加DNS如下
        nameserver 114.114.114.114
        nameserver 8.8.8.8
@@ -914,7 +914,7 @@
    > 查看adb版本： adb version  
 
 
- ## 1、ls 查看目录文件 
+ ## **ls 查看目录文件**
  
    > ls -a    列出目录所有文件，包含以.开始的隐藏文件    
    > ls -A    列出除.及..的其它文   
@@ -922,50 +922,50 @@
    > ls -t    以文件修改时间排序   
    > ls -S    以文件大小排序   
    > ls -h    以易读大小显示   
-   > ls -l    除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来  
+   > ls -l    除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来    
 
- ## 2、cd 切换
+ ## **cd 切换**
    
- > cd /    进入要目录
- > cd ~    进入"家"目录
- > cd -    进入上一次工作路径
- > cd !$   把上个命令的参数作为cd参数使用。
+   > cd /    进入要目录  
+   > cd ~    进入"家"目录  
+   > cd -    进入上一次工作路径  
+   > cd !$   把上个命令的参数作为cd参数使用。  
 
- ## 3、pwd 查看当前工作目录路径
+ ## **pwd 查看当前工作目录路径**
  
-    pwd    查看当前路径
-    pwd -P    查看软链接的实际路径
+   > pwd    查看当前路径  
+   > pwd -P    查看软链接的实际路径  
 
- ## 4、mkdir 创建文件夹
+ ## **mkdir 创建文件夹**
  
-    mkdir t    当前工作目录下创建名为t的文件夹
-    mkdir -p /tmp/test/t1/t    在tmp目录下创建路径为test/t1/t的目录，若不存在，则创建 
+   > mkdir t    当前工作目录下创建名为t的文件夹  
+   > mkdir -p /tmp/test/t1/t    在tmp目录下创建路径为test/t1/t的目录，若不存在，则创建   
 
- ## 5、rm 删除文件
+ ## **rm 删除文件**
  
-    rm -i *.log    删除任何.log文件；删除前逐一询问确认
-    rm -rf test    删除test子目录及子目录中所有档案删除,并且不用一一确认 
-    rm -- -f*    删除以-f开头的文件
+   > rm -i *.log    删除任何.log文件；删除前逐一询问确认  
+   > rm -rf test    删除test子目录及子目录中所有档案删除,并且不用一一确认   
+   > rm -- -f*    删除以-f开头的文件  
 
- ## 6、rmdir 删除空目录
+ ## **rmdir 删除空目录**
  
-    rmdir -p parent/child/child11    当parent子目录被删除后使它也成为空目录的话，则顺便一并删除
+   > rmdir -p parent/child/child11    当parent子目录被删除后使它也成为空目录的话，则顺便一并删除  
 
- ## 7、mv 移动/修改文件名
+ ## **mv 移动/修改文件名**
  
-    mv test.log test1.txt    将文件test.log重命名为test1.txt  
-    mv llog1.txt log2.txt log3.txt /test3    将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中  
-    mv -i log1.txt log2.txt    将文件file1改名为file2，如果file2已经存在，则询问是否覆盖  
-    mv * ../    移动当前文件夹下的所有文件到上一级目录  
+   > mv test.log test1.txt    将文件test.log重命名为test1.txt  
+   > mv llog1.txt log2.txt log3.txt /test3    将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中  
+   > mv -i log1.txt log2.txt    将文件file1改名为file2，如果file2已经存在，则询问是否覆盖   
+   > mv * ../    移动当前文件夹下的所有文件到上一级目录    
 
- ## 8、cp 复制
+ ## **cp 复制**
  
-    -i   提示
-    -r   复制目录及目录内所有项目  
-    -a   复制的文件与原文件时间一样 
-    实例：
-    cp -ai a.txt test   复制a.txt到test目录下，保持原文件时间,如果原文件存在提示是否覆盖  
-    cp -s a.txt link_a.txt   为a.txt建议一个链接（快捷方式）  
+   > -i   提示  
+   > -r   复制目录及目录内所有项目   
+   > -a   复制的文件与原文件时间一样   
+    实例：  
+    cp -ai a.txt test   复制a.txt到test目录下，保持原文件时间,如果原文件存在提示是否覆盖    
+    cp -s a.txt link_a.txt   为a.txt建议一个链接（快捷方式）    
 
  ## 9、cat 显示文件详情
  
