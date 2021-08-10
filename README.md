@@ -16,7 +16,6 @@
    > 总结:
     pytest可以执行unittest风格的测试用例,无须修改unittest用例的任何代码,有较好的兼容性。 pytest插件丰富,比如flask插件,可用于用例出错重跑;还有xdist插件,可用于设备并行执行。  
 
-
  **二、用例前置和后置**
   
    > 1、unittest提供了setUp/tearDown，每个用例运行前、结束后运行一次。setUpClass和tearDownClass，用例执行前、结束后，只运行一次。  
