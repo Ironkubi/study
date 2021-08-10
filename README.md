@@ -27,8 +27,8 @@
     4) 方法级（setup_method/teardown_method）开始于方法始末(在类中)   
     5) 类里面的（setup/teardown）运行在调用方法的前后  
 
-   > 3、pytest还可以在函数前加@pytest.fixture()装饰器，在测试用例中装在fixture函数。fixture的使用范围可以是function,module,class,session。  
-    firture相对于setup和teardown来说有以下几点优势：  
+   > 3、pytest还可以在函数前加@pytest.fixture()装饰器，在测试用例中装在fixture函数。  
+    fixture的使用范围可以是function,module,class,session。firture相对于setup和teardown来说有以下几点优势：    
     1) 命名方式灵活，不局限于setup和teardown这几个命名    
     2) conftest.py 配置里可以实现数据共享，不需要import就能自动找到一些配置，可供多个py文件调用   
     3) scope="module" 可以实现多个.py跨文件共享前置  
