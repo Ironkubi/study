@@ -59,6 +59,7 @@
       > 开机启动： systemctl enable docker  
 
   * **Docker 基本命令**
+  
     > 查看docker概要信息: docker info  
     > 查看docker帮助文档: docker ‐‐help  
     > 查看镜像：docker images  
@@ -83,7 +84,17 @@
     > docker build -t nginx:v3 .  
       
        
-  * **Dockerfile** 
+  * **Dockerfile**   
+     
+     FROM centos
+     VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"] 
+     CMD echo "finished,------success1"
+     CMD /bin/bash
+     
+     等价于：docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 /bin/bash
+     
+     docker build -f /mydocker/dockerfile -t sunfei/centos .
+       
        
    
  ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
