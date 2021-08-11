@@ -18,7 +18,7 @@ print("\n")
 
 
 """列表的用法:函数用法"""
-# operator：列表比较返回布尔值
+
 print("===》列表比较：operator 返回布尔值")
 import operator
 a = [1, 2]
@@ -44,90 +44,99 @@ print("\n")
 
 
 print("===》列表最大值：max()")
-list1, list2 = ['Google', 'Runoob', 'Taobao'], [456, 700, 200]
+alist, blist = ['Google', 'Runoob', 'Taobao'], [456, 700, 200]
+print("列表操作前alist：", alist)
+print("列表操作前blist：", blist)
+print ("列表最大值：max(alist) : ", max(alist))
+print ("列表最大值：max(blist) : ", max(blist))
 
-print ("list1 最大元素值 : ", max(list1))
-print ("list2 最大元素值 : ", max(list2))
-
-print("列表中元素为字符串的时候，max 函数的比较是根据 id 的大小来判断的。")
-list1 = ['我', '爱', 'python']
-list2 = [100, 200, 300]
-print('list1的最大值:', max(list1))
-print('list2的最大值:', max(list2))
-print(id(list1[0]))
-print(id(list1[1]))
-print(id(list1[2]))
-print('我' > '爱')
-print('爱' > 'python')
-print('我' > 'python')
+print("===》列表中元素为字符串的时候，max函数的比较是根据id的大小来判断的。")
+alist = ['我', '爱', 'python']
+blist = [100, 200, 300]
+print("列表操作前alist：", alist)
+print("列表操作前blist：", blist)
+print('列表最大值：max(alist):', max(alist))
+print('列表最大值：max(blist):', max(blist))
+print("id(alist[0])：", id(alist[0]))
+print("id(alist[1])：", id(alist[1]))
+print("id(alist[2])：", id(alist[2]))
+print("'我' > '爱':", '我' > '爱')
+print("'爱' > 'python':", '爱' > 'python')
+print("'我' > 'python':", '我' > 'python')
 print("\n")
 
 
 
 print("===》列表最小值：min()")
-list1, list2 = ['Google', 'Runoob', 'Taobao'], [456, 700, 200]
-print ("list1 最小元素值 : ", min(list1))
-print ("list2 最小元素值 : ", min(list2))
+alist, blist = ['Google', 'Runoob', 'Taobao'], [456, 700, 200]
+print("列表操作前alist：", alist)
+print("列表操作前blist：", blist)
+print ('列表最大值：min(alist):', min(alist))
+print ('列表最大值：min(blist):', min(blist))
 print("\n")
 
 
-# list ：将元组转化为列表
 print("===》列表转化：list()")
 aTuple = (123, 'Google', 'Runoob', 'Taobao')
+print("tuple操作前：", aTuple)
 list1 = list(aTuple)
-print ("元祖转为列表，列表元素 : ", list1)
+print ("列表转化-list(tuple): ", list1)
 
 str="Hello World"
+print("str操作前：", str)
 list2=list(str)
-print ("字符串转列表，列表元素 : ", list2)
+print ("列表转化-list(str): ", list2)
 print("\n")
 
 
 
 """列表的用法:方法"""
 
-# List.append() 在列表末尾添加新对象
-list1 = ['Google', 'Runoob', 'Taobao']
+print("===》List.append():在列表末尾添加新对象")
+alist = ['Google', 'Runoob', 'Taobao']
+print("列表操作前alist：", alist)
 list1.append('Baidu')
-print ("List.append()更新后的列表 : ", list1)
+print ("List.append('Baidu')更新后的列表 : ", alist)
 print("\n")
 
 
-# List.count() 统计某个元素在列表中出现的次数
-aList = [123, 'Google', 'Runoob', 'Taobao', 123];
+#
+print("===》List.count():统计某个元素在列表中出现的次数")
+aList = [123, 'Google', 'Runoob', 'Taobao', 123]
+print("列表操作前alist：", alist)
 print ("List.count()统计某个元素在列表中出现的次数，123 元素个数 : ", aList.count(123))
 print ("List.count()统计某个元素在列表中出现的次数，Runoob 元素个数 : ", aList.count('Runoob'))
 print("\n")
 
 
-# List.extend() 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
+print("===》List.extend():在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）")
 print("语法： list.extend(seq)")
-print("参数 seq -- 元素列表，可以是列表、元组、集合、字典，若为字典,则仅会将键(key)作为元素依次添加至原列表的末尾。")
-# 语言列表
+print("参数: seq -- 元素列表，可以是列表、元组、集合、字典，若为字典,则仅会将键(key)作为元素依次添加至原列表的末尾。")
 language = ['French', 'English', 'German']
-# 列表
+print("列表操作前language：", language)
 language_list = ['USA']
-# 元组
+print("列表操作前language_list：", language_list)
 language_tuple = ('Spanish', 'Portuguese')
-# 集合
+print("元祖操作前language_tuple：", language_tuple)
 language_set = {'Chinese', 'Japanese'}
+print("集合操作前language_set：", language_set)
 # 添加列表元素到列表末尾
 language.extend(language_list)
-print('List.extend()追加列表，新列表: ', language)
+print('List.extend(language_list)追加列表，新列表: ', language)
 # 添加元组元素到列表末尾
 language.extend(language_tuple)
-print('List.extend()追加元祖，新列表: ', language)
+print('List.extend(language_tuple)追加元祖，新列表: ', language)
 # 添加集合元素到列表末尾
 language.extend(language_set)
-print('List.extend()追加集合，新列表: ', language)
+print('List.extend(language_set)追加集合，新列表: ', language)
 print("\n")
 
 
 # List.index() 从列表中找出某个值第一个匹配项的索引位置
 print("语法： list.index(x[, start[, end]])")
-print("参数 x-- 查找的对象")
-print("参数 start-- 可选，查找的起始位置")
-print("参数 end-- 可选，查找的结束位置")
+print("参数: x-- 查找的对象")
+print("参数: start-- 可选，查找的起始位置")
+print("参数: end-- 可选，查找的结束位置")
 list1 = ['Google', 'Runoob', 'Taobao', 'Facebook', 'QQ']
 print ('List.index()找出某个元素索引的位置，Runoob 索引值为', list1.index('Runoob'))
 print ('List.index()找出某个元素索引的位置，Taobao 索引值为', list1.index('Taobao'))
