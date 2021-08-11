@@ -404,7 +404,8 @@ a = sorted(foo, key=lambda x:x[0])
 print(a)
 print("\n")
 
-# 列表嵌套列表，年龄数字相同怎么办？
+
+print("===》列表嵌套列表，年龄数字相同怎么办？")
 foo = [["zs",19],["11",54],["wa",23],["df",23],["xf",23]]
 a = sorted(foo, key=lambda x:(x[1],x[0]),reverse=True)
 print(a)
@@ -424,12 +425,12 @@ print("字典推导式", dict, type(dict))
 print("\n")
 
 
-# 根据字符串长度排序
-s = ["ab","abc","a","djkj"]
-b =sorted(s, key=lambda x:len(x))
-print(b,s)
-s.sort(key=len)
-print(s)
+print("===》lambda:根据字符串长度排序")
+alist = ["ab","abc","a","djkj"]
+b =sorted(alist, key=lambda x:len(x))
+print(b,alist)
+alist.sort(key=len)
+print(alist)
 
 
 
