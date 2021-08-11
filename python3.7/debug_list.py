@@ -7,79 +7,79 @@
 
 """列表的用法:访问列表里的值"""
 
-# 访问列表中的值-索引
+print("===》列表索引：利用索引访问列表元素")
 alist = ['red', 'green', 'blue', 'yellow', 'white', 'black']
-print("list[1]读取第二位: ", alist[1])      # 读取第二位
-print("list[-1]读取倒数第一位: ", alist[-1])    # 读取倒数第一位
-print("list[1:-2]从第二位开始（包含）截取到倒数第二位（不包含）: ", alist[1:-2])   # 从第二位开始（包含）截取到倒数第二位（不包含）
+print("列表操作前：", alist)
+print("列表访问-list[1]， 读取第二位: ", alist[1])      # 读取第二位
+print("列表访问-list[-1]， 读取倒数第一位: ", alist[-1])    # 读取倒数第一位
+print("列表访问-list[1:-2]， 从第二位开始（包含）截取到倒数第二位（不包含）: ", alist[1:-2])   # 从第二位开始（包含）截取到倒数第二位（不包含）
 print("\n")
 
 
 
 """列表的用法:函数用法"""
 # operator：列表比较返回布尔值
+print("===》列表比较：operator 返回布尔值")
 import operator
 a = [1, 2]
 b = [1, 3]
-
-print("列表比较-operator.lt  a < b: ", operator.lt(a, b))
-print("列表比较-operator.le a <= b: ", operator.le(a, b))
-print("列表比较-operator.eq a == b: ", operator.eq(a, b))
-print("列表比较-operator.ne  a != b: ", operator.ne(a, b))
-print("列表比较-operator.gt  a > b: ", operator.ge(a, b))
-print("列表比较-operator.ge  a >= b: ", operator.gt(a, b))
+print("列表操作前a:", a)
+print("列表操作前b:", b)
+print("列表比较-operator.lt(a, b)，a < b: ", operator.lt(a, b))
+print("列表比较-operator.le(a, b)，a <= b: ", operator.le(a, b))
+print("列表比较-operator.eq(a, b)，a == b: ", operator.eq(a, b))
+print("列表比较-operator.ne(a, b)，a != b: ", operator.ne(a, b))
+print("列表比较-operator.ge(a, b)，a > b: ", operator.ge(a, b))
+print("列表比较-operator.gt(a, b)，a >= b: ", operator.gt(a, b))
 print("\n")
 
 
-# len ：列表元素个数
+print("===》列表长度：len()")
 alist = ['Google', 'Runoob', 'Taobao']
-print ("列表元素个数: ", len(alist))
+print("列表操作前：", alist)
+print ("列表长度-len(list): ", len(alist))
 blist=list(range(5)) # 创建一个 0-4 的列表
-print ("列表元素个数: ", len(blist))
+print ("列表长度-len(list(range(5))): ", len(blist))
 print("\n")
 
 
-
-# max ：返回列表元素最大值
+print("===》列表最大值：max()")
 list1, list2 = ['Google', 'Runoob', 'Taobao'], [456, 700, 200]
 
 print ("list1 最大元素值 : ", max(list1))
 print ("list2 最大元素值 : ", max(list2))
 
-# 列表中元素为字符串的时候，max 函数的比较是根据 id 的大小来判断的。
+print("列表中元素为字符串的时候，max 函数的比较是根据 id 的大小来判断的。")
 list1 = ['我', '爱', 'python']
 list2 = [100, 200, 300]
 print('list1的最大值:', max(list1))
 print('list2的最大值:', max(list2))
-
 print(id(list1[0]))
 print(id(list1[1]))
 print(id(list1[2]))
-
 print('我' > '爱')
 print('爱' > 'python')
 print('我' > 'python')
-
 print("\n")
 
 
 
-# min ：返回列表元素最小值
+print("===》列表最小值：min()")
 list1, list2 = ['Google', 'Runoob', 'Taobao'], [456, 700, 200]
-
 print ("list1 最小元素值 : ", min(list1))
 print ("list2 最小元素值 : ", min(list2))
 print("\n")
 
 
 # list ：将元组转化为列表
+print("===》列表转化：list()")
 aTuple = (123, 'Google', 'Runoob', 'Taobao')
 list1 = list(aTuple)
-print ("列表元素 : ", list1)
+print ("元祖转为列表，列表元素 : ", list1)
 
 str="Hello World"
 list2=list(str)
-print ("列表元素 : ", list2)
+print ("字符串转列表，列表元素 : ", list2)
 print("\n")
 
 
@@ -136,84 +136,148 @@ print ('List.index()找出某个元素索引的位置，Runoob 索引值为', li
 print("\n")
 
 
-
 # List.insert() 将对象插入列表
-print("list.insert(index, obj)")
+print("语法 list.insert(index, obj)")
+print("参数 index -- 对象obj需要插入的索引位置")
+print("参数 obj -- 要插入列表中的对象")
+list1 = ['Google', 'Runoob', 'Taobao']
+list1.insert(1, 'Baidu')
+print ('List.insert()按照索引插入元素，新列表 : ', list1)
+print("\n")
+
 
 # List.pop() 移除列表中的一个元素（默认最后一个元素），并且返回该元素的值
-#
+print("语法 list.pop([index=-1])")
+print("参数 index -- 可选参数，要移除列表元素的索引值，不能超过列表总长度，默认为 index=-1，删除最后一个列表值")
+list1 = ['Google', 'Runoob', 'Taobao']
+list_pop = list1.pop()
+print ("List.pop()删除的项为 :", list_pop)
+print ("List.pop()列表现在为 : ", list1)
+list_pop = list1.pop(1)
+print ("List.pop(1)删除的项为 :", list_pop)
+print ("List.pop(1)列表现在为 : ", list1)
+print("\n")
+
+
 # List.remove() 移除列表中某个值的第一个匹配项
-#
+print("语法 list.remove(obj)")
+print("参数 obj -- 列表中要移除的对象")
+list1 = ['Google', 'Runoob', 'Taobao', 'Baidu']
+list1.remove('Taobao')
+print ("List.remove('Taobao')列表现在为 : ", list1)
+list1.remove('Baidu')
+print ("List.remove('Baidu')列表现在为 : ", list1)
+print("\n")
+
+
 # List.reverse() 反向列表中元素
-#
+print("语法 list.reverse()")
+list1 = ['Google', 'Runoob', 'Taobao', 'Baidu']
+list1.reverse()
+print ("List.reverse()列表反转后: ", list1)
+print("\n")
+
+
 # List.sort() 对原列表进行排序 reverse=False(默认升序)
-#
+print("语法 list.sort( key=None, reverse=False)")
+print("参数 key -- 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序")
+print("参数 reverse -- 排序规则，reverse = True 降序， reverse = False 升序（默认）")
+aList = ['Google', 'Runoob', 'Taobao', 'Facebook']
+aList.sort()
+print("List.sort()升序输出List: ", aList)
+
+vowels = ['e', 'a', 'u', 'o', 'i']
+vowels.sort(reverse=True)
+print('List.sort(reverse=True) 降序输出list:', vowels)
+
+
+# 获取列表的第二个元素
+def takeSecond(elem):
+    return elem[1]
+
+# 列表
+random = [(2, 2), (3, 4), (4, 1), (1, 3)]
+
+# 指定第二个元素排序
+random.sort(key=takeSecond)
+
+# 输出类别
+print('List.sort(key=args)指定列表中的元素排序来输出列表：', random)
+print("\n")
+
+
+# list.clear() 清空列表
+print("语法 list.clear()")
+list1 = ['Google', 'Runoob', 'Taobao', 'Baidu']
+list1.clear()
+print ("list1.clear() 列表清空后 : ", list1)
+print("\n")
+
+# list.copy() 复制列表
+print("语法 list.copy()")
+list1 = ['Google', 'Runoob', 'Taobao', 'Baidu']
+list2 = list1.copy()
+print ("list.copy() list2复制list1列表: ", list2)
+print("\n")
+
 # .join() 将列表转化为字符串
+print("语法")
+print("参数 ")
+print("\n")
+
 
 
 """列表的用法:高级方法"""
 
-
-
-
-# 实现列表去重的方法-set
+print("===》列表去重：-set()")
 alist = [11,12,13,12,14,15,16,13]
 a = set(alist)
-print("列表去重-set：%s %s" % (type(a), a))
+print("列表去重set()后类型：", type(a))
+print("列表去重set()为集合:", a)
 b = [x for x in a]
-print("列表去重：" , b)
+print("列表去重列表解析：" , b)
 print("\n")
 
 
-
-# 列表解析-[func(x) for x in l1]
+print("===》列表解析：[func(x) for x in list]")
 alist = [x for x in range(5)]
-print("列表解析-打字每个值: ", alist)
+print("列表解析-输出元素: ", alist)
 l1 = [1,2,3,4]
 alist = [ x*2 for x in l1]
-print("列表解析-列表乘以2: ", alist)
+print("列表解析-列表乘法: ", alist)
 print("\n")
 
 
-
-# 条件列表解析-[x for x in range(100) if x%2 ==0]
-# 列表推导式求列表所有奇数并构造新列表
+print("===》列表解析：[x for x in range(100) if x%2 ==0]，列表推导式求列表所有奇数并构造新列表")
 alist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 res = [i for i in alist if i%2==1]
 print("条件列表解析-求奇数:", res)
 print("\n")
 
 
-
-# 嵌套列表解析-交换行列
+print("===》列表解析：嵌套列表解析-交换行列")
 mat = [[1, 2, 3],[4, 5, 6], [7, 8, 9]]
+print("嵌套列表解析前: ", mat)
 res = [[row[i] for row in mat] for i in (0,1,2)]
-print("嵌套列表解析-交换行列: ", res)
+print("嵌套列表解析后-交换行列: ", res)
 print("\n")
 
 
-# 列表合并-extend
-alist = [1,5,7,9]
-blist = [2,2,6,8]
-alist.extend(blist)   # 合并
-print("列表合并-extend:", alist)
-alist.sort(reverse=False)   # 排序
-print("列表排序-sort: ", alist)
-print("\n")
-
-
-# 列表合并-sum
+print("===》列表合并：sum()")
 alist = ['a','b'],['a','b'],['a','b']
+print("列表合并前：", alist)
 res = sum ([[ 'a', 'b' ],['a' , 'b'],[ 'a' ,'b']], [])
-print("列表合并-sum: ", res)
+print("列表合并后-sum: ", res)
 print("\n")
 
 
 
 # 嵌套列表合并-列表解析
+print("===》列表解析：嵌套列表合并-列表解析")
 alist = [[1,2],[3,4],[5,6]]
+print("嵌套列表合并-列表解析前:", alist)
 res = [j for i in alist for j in i]
-print("嵌套列表合并-列表解析:", res)
+print("嵌套列表合并-列表解析后:", res)
 print("\n")
 
 
