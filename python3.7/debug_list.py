@@ -17,36 +17,129 @@ print("\n")
 
 
 """列表的用法:函数用法"""
+# operator：列表比较返回布尔值
+import operator
+a = [1, 2]
+b = [1, 3]
 
-# cmp ：比较两个列表的元素
+print("列表比较-operator.lt  a < b: ", operator.lt(a, b))
+print("列表比较-operator.le a <= b: ", operator.le(a, b))
+print("列表比较-operator.eq a == b: ", operator.eq(a, b))
+print("列表比较-operator.ne  a != b: ", operator.ne(a, b))
+print("列表比较-operator.gt  a > b: ", operator.ge(a, b))
+print("列表比较-operator.ge  a >= b: ", operator.gt(a, b))
+print("\n")
+
 
 # len ：列表元素个数
+alist = ['Google', 'Runoob', 'Taobao']
+print ("列表元素个数: ", len(alist))
+blist=list(range(5)) # 创建一个 0-4 的列表
+print ("列表元素个数: ", len(blist))
+print("\n")
+
+
 
 # max ：返回列表元素最大值
+list1, list2 = ['Google', 'Runoob', 'Taobao'], [456, 700, 200]
+
+print ("list1 最大元素值 : ", max(list1))
+print ("list2 最大元素值 : ", max(list2))
+
+# 列表中元素为字符串的时候，max 函数的比较是根据 id 的大小来判断的。
+list1 = ['我', '爱', 'python']
+list2 = [100, 200, 300]
+print('list1的最大值:', max(list1))
+print('list2的最大值:', max(list2))
+
+print(id(list1[0]))
+print(id(list1[1]))
+print(id(list1[2]))
+
+print('我' > '爱')
+print('爱' > 'python')
+print('我' > 'python')
+
+print("\n")
+
+
 
 # min ：返回列表元素最小值
+list1, list2 = ['Google', 'Runoob', 'Taobao'], [456, 700, 200]
+
+print ("list1 最小元素值 : ", min(list1))
+print ("list2 最小元素值 : ", min(list2))
+print("\n")
+
 
 # list ：将元组转化为列表
+aTuple = (123, 'Google', 'Runoob', 'Taobao')
+list1 = list(aTuple)
+print ("列表元素 : ", list1)
+
+str="Hello World"
+list2=list(str)
+print ("列表元素 : ", list2)
+print("\n")
 
 
 
 """列表的用法:方法"""
 
-
-"""列表的用法:高级方法"""
-
-# 方法：
-
 # List.append() 在列表末尾添加新对象
-#
+list1 = ['Google', 'Runoob', 'Taobao']
+list1.append('Baidu')
+print ("List.append()更新后的列表 : ", list1)
+print("\n")
+
+
 # List.count() 统计某个元素在列表中出现的次数
-#
+aList = [123, 'Google', 'Runoob', 'Taobao', 123];
+print ("List.count()统计某个元素在列表中出现的次数，123 元素个数 : ", aList.count(123))
+print ("List.count()统计某个元素在列表中出现的次数，Runoob 元素个数 : ", aList.count('Runoob'))
+print("\n")
+
+
 # List.extend() 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
-#
+print("语法： list.extend(seq)")
+print("参数 seq -- 元素列表，可以是列表、元组、集合、字典，若为字典,则仅会将键(key)作为元素依次添加至原列表的末尾。")
+# 语言列表
+language = ['French', 'English', 'German']
+# 列表
+language_list = ['USA']
+# 元组
+language_tuple = ('Spanish', 'Portuguese')
+# 集合
+language_set = {'Chinese', 'Japanese'}
+# 添加列表元素到列表末尾
+language.extend(language_list)
+print('List.extend()追加列表，新列表: ', language)
+# 添加元组元素到列表末尾
+language.extend(language_tuple)
+print('List.extend()追加元祖，新列表: ', language)
+# 添加集合元素到列表末尾
+language.extend(language_set)
+print('List.extend()追加集合，新列表: ', language)
+print("\n")
+
+
 # List.index() 从列表中找出某个值第一个匹配项的索引位置
-#
+print("语法： list.index(x[, start[, end]])")
+print("参数 x-- 查找的对象")
+print("参数 start-- 可选，查找的起始位置")
+print("参数 end-- 可选，查找的结束位置")
+list1 = ['Google', 'Runoob', 'Taobao', 'Facebook', 'QQ']
+print ('List.index()找出某个元素索引的位置，Runoob 索引值为', list1.index('Runoob'))
+print ('List.index()找出某个元素索引的位置，Taobao 索引值为', list1.index('Taobao'))
+# 从指定位置开始搜索
+print ('List.index()找出某个元素索引的位置，Runoob 索引值为', list1.index('Runoob',1))
+print("\n")
+
+
+
 # List.insert() 将对象插入列表
-#
+print("list.insert(index, obj)")
+
 # List.pop() 移除列表中的一个元素（默认最后一个元素），并且返回该元素的值
 #
 # List.remove() 移除列表中某个值的第一个匹配项
@@ -56,6 +149,10 @@ print("\n")
 # List.sort() 对原列表进行排序 reverse=False(默认升序)
 #
 # .join() 将列表转化为字符串
+
+
+"""列表的用法:高级方法"""
+
 
 
 
