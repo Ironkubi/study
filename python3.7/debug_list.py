@@ -245,6 +245,13 @@ print("列表去重set()后类型：", type(a))
 print("列表去重set()为集合:", a)
 b = [x for x in a]
 print("列表去重列表解析：" , b)
+
+list2 = []
+for i in alist:
+    if i not in list2:
+        list2.append(i)
+print(list2)
+
 print("\n")
 
 
