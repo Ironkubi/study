@@ -107,16 +107,11 @@
         docker run -it --name dc03 --volumes-from dc01 sunfei/centos  
         创建文件：touch dc01_add.txt  
       
-   
-  * **创建镜像**   
-   
-    > docker build -t nginx:v3 .  
-      
        
   * **Dockerfile**   
-    > 创建Dockerfile文件目录： 
-      mkdir /mydocker/
-      vim /mydocker/dockerfile
+   > 创建Dockerfile文件目录： 
+     mkdir /mydocker/
+     vim /mydocker/dockerfile
 
       
        # Base images 基础镜像
@@ -156,6 +151,10 @@
 
        # CMD 运行以下命令
        CMD ["-h"]复制代码
+        
+   > 构建镜像
+     docker build -t nginx:v3 . 
+     docker build -f /mydocker/Dockerfile -t sunfei/centos . 
 
    
  ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
