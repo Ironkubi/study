@@ -58,54 +58,54 @@
    > 查看docker状态： systemctl status docker  
    > 开机启动： systemctl enable docker  
 
-  * **Docker 基本命令**
+* **Docker 基本命令**
   
-    > 查看docker概要信息: docker info  
-    > 查看docker帮助文档: docker ‐‐help  
-    > 查看镜像：docker images  
-    > 查看运行的容器：docker ps  
-    > 查看所有的容器：docker ps -a  
-    > 停止运行容器：docker stop <容器 ID>  
-    > 运行容器：docker run -it <容器 ID> /bin/bash  
-    > 进入容器：docker exec -it <容器 ID> /bin/bash  
-    > 删除容器：docker rm -f <容器 ID>  
-    > 查看容器内的标准输出：docker logs -f <容器 ID>  
+  > 查看docker概要信息: docker info  
+  > 查看docker帮助文档: docker ‐‐help  
+  > 查看镜像：docker images  
+  > 查看运行的容器：docker ps  
+  > 查看所有的容器：docker ps -a  
+  > 停止运行容器：docker stop <容器 ID>  
+  > 运行容器：docker run -it <容器 ID> /bin/bash  
+  > 进入容器：docker exec -it <容器 ID> /bin/bash  
+  > 删除容器：docker rm -f <容器 ID>  
+  > 查看容器内的标准输出：docker logs -f <容器 ID>  
        
-       
-  * **Docker 容器卷**
-  
-    * 用处 
-      > 容器的持久化
-      > 容器间继承+数据共享
-    
-    * 基本用法
-      > docker run -it -v /mydatavolume:/mydatavolumecontainer centos
-      > 设置只读权限：docker run -it -v /mydatavolume:/mydatavolumecontainer:ro centos
-      > docker inspect <容器 ID>
-   
-    * 利用 Dockerfile 创建容器卷  
-      > 创建Dockerfile文件目录： 
-        mkdir /mydocker/
-        vim /mydocker/dockerfile  
-          FROM centos  
-          VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]   
-          CMD echo "finished,------success1"  
-          CMD /bin/bash  
      
-      > 等价于：docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 /bin/bash
-    
-      > 运行 Dockerfile  
-        docker build -f /mydocker/Dockerfile -t sunfei/centos .  
-        docker images  
-        
-      > 运行容器卷镜像   
-        docker run -it  sunfei/centos  
+* **Docker 容器卷**
+  
+  * 用处 
+   > 容器的持久化
+   > 容器间继承+数据共享
+  
+  * 基本用法
+    > docker run -it -v /mydatavolume:/mydatavolumecontainer centos
+    > 设置只读权限：docker run -it -v /mydatavolume:/mydatavolumecontainer:ro centos
+    > docker inspect <容器 ID>
+ 
+  * 利用 Dockerfile 创建容器卷  
+    > 创建Dockerfile文件目录： 
+      mkdir /mydocker/
+      vim /mydocker/dockerfile  
+        FROM centos  
+        VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]   
+        CMD echo "finished,------success1"  
+        CMD /bin/bash  
    
-      > 容器数据卷-容器间数据共享  
-        docker run -it --name dc01 sunfei/centos  
-        docker run -it --name dc02 --volumes-from dc01 sunfei/centos  
-        docker run -it --name dc03 --volumes-from dc01 sunfei/centos  
-        创建文件：touch dc01_add.txt  
+    > 等价于：docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 /bin/bash
+  
+    > 运行 Dockerfile  
+      docker build -f /mydocker/Dockerfile -t sunfei/centos .  
+      docker images  
+      
+    > 运行容器卷镜像   
+      docker run -it  sunfei/centos  
+ 
+    > 容器数据卷-容器间数据共享  
+      docker run -it --name dc01 sunfei/centos  
+      docker run -it --name dc02 --volumes-from dc01 sunfei/centos  
+      docker run -it --name dc03 --volumes-from dc01 sunfei/centos  
+      创建文件：touch dc01_add.txt  
       
        
   * **Dockerfile**   
