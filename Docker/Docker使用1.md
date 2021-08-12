@@ -1,62 +1,62 @@
 # Docker
 
- ## [Docker](https://www.runoob.com/docker/centos-docker-install.html)基本命令
- 
-  * **Docker 安装**  
-    
-    * 卸载旧版本  
-      
-      > sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-engine
-       
-    * 安装所需的软件包。yum-utils 提供了 yum-config-manager ，并且 device mapper 存储驱动程序需要 device-mapper-persistent-data和lvm2    
-      
-      > sudo yum install -y yum-utils device-mapper-persistent-data lvm2  
-    
-    * 设置稳定的仓库(添加软件源信息)   
-    
-      > sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo  
-      
-    * 更新 yum 缓存：  
-    
-      > sudo yum makecache fast  
-      
-    * 安装 Docker Engine-Community   
-     
-      > sudo yum install docker-ce docker-ce-cli containerd.io  
-    
-    * 启动docker  
-    
-      > sudo systemctl start docker   
-    
-    * 通过运行 hello-world 映像来验证是否正确安装了 Docker Engine-Community  
-      
-      > sudo docker run hello-world  
-    
-    * 配置镜像加速器  
-    
-      > sudo mkdir -p /etc/docker     
-      > sudo tee /etc/docker/daemon.json <<-'EOF'   
-       {
-         "registry-mirrors": ["https://o9nqigxx.mirror.aliyuncs.com"]  
-       }  
-       EOF  
-      > sudo systemctl daemon-reload   
-      > sudo systemctl restart docker  
-      
-    * systemctl命令是系统服务管理器指令: 
+## [Docker](https://www.runoob.com/docker/centos-docker-install.html) 基本命令
+***
+* **Docker 安装**   
+
+  * 卸载旧版本  
   
-      > 启动docker： systemctl start docker  
-      > 停止docker： systemctl stop docker  
-      > 重启docker： systemctl restart docker  
-      > 查看docker状态： systemctl status docker  
-      > 开机启动： systemctl enable docker  
+   > sudo yum remove docker \
+             docker-client \
+             docker-client-latest \
+             docker-common \
+             docker-latest \
+             docker-latest-logrotate \
+             docker-logrotate \
+             docker-engine
+       
+  * 安装所需的软件包。yum-utils 提供了 yum-config-manager ，并且 device mapper 存储驱动程序需要 device-mapper-persistent-data和lvm2    
+    
+   > sudo yum install -y yum-utils device-mapper-persistent-data lvm2  
+  
+  * 设置稳定的仓库(添加软件源信息)   
+  
+   > sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo  
+    
+  * 更新 yum 缓存：  
+  
+   > sudo yum makecache fast  
+    
+  * 安装 Docker Engine-Community   
+   
+   > sudo yum install docker-ce docker-ce-cli containerd.io  
+  
+  * 启动docker  
+  
+   > sudo systemctl start docker   
+  
+  * 通过运行 hello-world 映像来验证是否正确安装了 Docker Engine-Community  
+    
+   > sudo docker run hello-world  
+  
+  * 配置镜像加速器  
+  
+   > sudo mkdir -p /etc/docker     
+   > sudo tee /etc/docker/daemon.json <<-'EOF'   
+    {
+      "registry-mirrors": ["https://o9nqigxx.mirror.aliyuncs.com"]  
+    }  
+    EOF  
+   > sudo systemctl daemon-reload   
+   > sudo systemctl restart docker  
+    
+  * systemctl命令是系统服务管理器指令: 
+
+   > 启动docker： systemctl start docker  
+   > 停止docker： systemctl stop docker  
+   > 重启docker： systemctl restart docker  
+   > 查看docker状态： systemctl status docker  
+   > 开机启动： systemctl enable docker  
 
   * **Docker 基本命令**
   
