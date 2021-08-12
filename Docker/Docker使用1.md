@@ -74,10 +74,39 @@
        
   * **Docker 容器卷**
   
-    > docker run -it -v /mydatavolume:/mydatavolumecontainer centos
-    > docker run -it -v /mydatavolume:/mydatavolumecontainer:ro centos
-    > docker inspect <容器 ID>
+    * 用处 
+      > 容器的持久化
+      > 容器间继承+数据共享
+    
+    * 基本用法
+      > docker run -it -v /mydatavolume:/mydatavolumecontainer centos
+      > 设置只读权限：docker run -it -v /mydatavolume:/mydatavolumecontainer:ro centos
+      > docker inspect <容器 ID>
    
+    * 利用 Dockerfile 创建容器卷  
+      > 创建Dockerfile文件目录： 
+        mkdir /mydocker/
+        vim /mydocker/dockerfile  
+          FROM centos  
+          VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"]   
+          CMD echo "finished,------success1"  
+          CMD /bin/bash  
+     
+      > 等价于：docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 /bin/bash
+    
+      > 运行 Dockerfile  
+        docker build -f /mydocker/Dockerfile -t sunfei/centos .  
+        docker images  
+        
+      > 运行容器卷镜像   
+        docker run -it  sunfei/centos  
+   
+      > 容器数据卷-容器间数据共享  
+        docker run -it --name dc01 sunfei/centos  
+        docker run -it --name dc02 --volumes-from dc01 sunfei/centos  
+        docker run -it --name dc03 --volumes-from dc01 sunfei/centos  
+        创建文件：touch dc01_add.txt  
+      
    
   * **创建镜像**   
    
@@ -85,16 +114,49 @@
       
        
   * **Dockerfile**   
-     
-     FROM centos
-     VOLUME ["/dataVolumeContainer1","/dataVolumeContainer2"] 
-     CMD echo "finished,------success1"
-     CMD /bin/bash
-     
-     等价于：docker run -it -v /host1:/dataVolumeContainer1 -v /host2:/dataVolumeContainer2 /bin/bash
-     
-     docker build -f /mydocker/dockerfile -t sunfei/centos .
-       
+    > 创建Dockerfile文件目录： 
+      mkdir /mydocker/
+      vim /mydocker/dockerfile
+
+      
+       # Base images 基础镜像
+       FROM centos
+
+       # MAINTAINER 维护者信息
+       MAINTAINER lorenwe 
+
+       # ENV 设置环境变量
+       ENV PATH /usr/local/nginx/sbin:$PATH
+
+       # ADD  文件放在当前目录下，拷过去会自动解压
+       ADD nginx-1.13.7.tar.gz /tmp/
+
+       # RUN 执行以下命令
+       RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 \
+       && yum update -y \
+       && yum install -y vim less wget curl gcc automake autoconf libtool make gcc-c++ zlib zlib-devel openssl openssl-devel perl perl-devel pcre pcre-devel libxslt libxslt-devel \
+       && yum clean all \
+       && rm -rf /usr/local/src/*
+       RUN useradd -s /sbin/nologin -M www
+
+       # WORKDIR 相当于cd
+       WORKDIR /tmp/nginx-1.13.7
+
+       RUN ./configure --prefix=/usr/local/nginx --user=www --group=www --with-http_ssl_module --with-pcre && make && make install
+
+       RUN cd / && rm -rf /tmp/
+
+       COPY nginx.conf /usr/local/nginx/conf/
+
+       # EXPOSE 映射端口
+       EXPOSE 80 443
+
+       # ENTRYPOINT 运行以下命令
+       ENTRYPOINT ["nginx"]
+
+       # CMD 运行以下命令
+       CMD ["-h"]复制代码
+
        
    
  ## [Docker-Selenium](https://www.lfhacks.com/tech/selenium-docker)
