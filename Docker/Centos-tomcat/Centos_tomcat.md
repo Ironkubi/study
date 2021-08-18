@@ -17,8 +17,9 @@
     cd /mydocker/tomcat
     vim Dockerfile
     将软件包考入当前目录：
-    1、apache-tomcat-9.0.52.tar.gz 
-    2、jdk-8u221-linux-x64.tar.gz
+    1、jdk-8u221-linux-x64.tar.gz
+    2、apache-tomcat-9.0.52.tar.gz 
+
 
 ## 创建容器
 
