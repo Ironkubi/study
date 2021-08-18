@@ -109,7 +109,7 @@
  ## **mv 移动/修改文件名**
  
    > mv test.log test1.txt    将文件test.log重命名为test1.txt  
-   > mv llog1.txt log2.txt log3.txt /test3    将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中  
+   > mv log1.txt log2.txt log3.txt /test3    将文件log1.txt,log2.txt,log3.txt移动到根的test3目录中  
    > mv -i log1.txt log2.txt    将文件file1改名为file2，如果file2已经存在，则询问是否覆盖   
    > mv * ../    移动当前文件夹下的所有文件到上一级目录    
 
