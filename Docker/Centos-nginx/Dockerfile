@@ -1,37 +1,31 @@
-# Base images 基础镜像
 FROM centos:8
 
-# MAINTAINER 维护者信息
 MAINTAINER Ironkubi
 
-# ENV 设置环境变量
-ENV PATH /usr/local/nginx/sbin:$PATH
+RUN yum install -y gcc gcc-c++ make \
+    openssl-devel pcre-devel gd-devel \
+    iproute net-tools telnet wget curl && \
+    yum clean all && \
+    rm -rf /var/cache/yum/*
 
-# ADD  文件放在当前目录下，拷过去会自动解压
-ADD nginx-1.13.7.tar.gz /tmp/
+RUN wget http://nginx.org/download/nginx-1.15.5.tar.gz && \
+    tar zxf nginx-1.15.5.tar.gz && \
+    cd nginx-1.15.5 &&\
+    ./configure --prefix=/usr/local/nginx \
+    --with-http_ssl_module \
+    --with-http_stub_status_module && \
+    make -j 4 && make install && \
+    rm -rf /usr/local/nginx/html/* && \
+    echo "ok" >> /usr/local/nginx/html/status.html && \
+    cd / && rm -rf nginx-1.15.5* && \
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-# RUN 执行以下命令
-RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 \
-  && yum update -y \
-  && yum install -y vim less wget curl gcc automake autoconf libtool make gcc-c++ zlib zlib-devel openssl openssl-devel perl perl-devel pcre pcre-devel libxslt libxslt-devel \
-  && yum clean all \
-  && rm -rf /usr/local/src/*
-RUN useradd -s /sbin/nologin -M www
+ENV PATH $PATH:/usr/local/nginx/sbin
 
-# WORKDIR 相当于cd
-WORKDIR /tmp/nginx-1.13.7
+COPY nginx.conf /usr/local/nginx/conf/nginx.conf
 
-RUN ./configure --prefix=/usr/local/nginx --user=www --group=www --with-http_ssl_module --with-pcre && make && make install
+WORKDIR /usr/local/nginx
 
-RUN cd / && rm -rf /tmp/
+EXPOSE 80
 
-COPY nginx.conf /usr/local/nginx/conf/
-
-# EXPOSE 映射端口
-EXPOSE 80 443
-
-# ENTRYPOINT 运行以下命令
-ENTRYPOINT ["nginx"]
-
-# CMD 运行以下命令
-CMD ["-h"]
+CMD ["nginx", "-g", "daemon off;"]
