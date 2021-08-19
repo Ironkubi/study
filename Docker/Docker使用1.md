@@ -374,6 +374,7 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
 
+
 5.更新yum缓存
 
 yum clean all
