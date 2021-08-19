@@ -349,3 +349,42 @@ EXPOSE 80
    --name: 为容器指定一个名字
 
 
+1.进入virtualbox官网
+
+https://www.virtualbox.org/
+
+2. 首先下载oracle_vbox.asc文件到本地：
+
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc
+
+再执行import：
+
+sudo rpm --import oracle_vbox.asc
+
+3. cd 进入目录：/etc/yum.repos.d
+
+
+4.在/etc/yum.repos.d/目录下新建virtualbox.repo并写入如下内容
+
+[virtualbox]
+name=Oracle Linux / RHEL / CentOS-$releasever / $basearch - VirtualBox
+baseurl=http://download.virtualbox.org/virtualbox/rpm/el/$releasever/$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
+
+5.更新yum缓存
+
+yum clean all
+
+yum makecache
+
+6.安装virtualbox
+
+yum install VirtualBox-5.1
+
+
+/sbin/vboxconfig
+
+yum istall kernel-devel
