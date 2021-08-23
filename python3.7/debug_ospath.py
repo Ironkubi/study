@@ -26,3 +26,6 @@ print(path1)
 path2 = os.path.join(os.path.dirname(os.path.abspath(__file__)),'1.py')
 print(path2)
 
+
+# 1、不要以命令行的形式来进行os.path.dirname(__file__)这种形式来使用这个函数
+# 2、结合os.path.abspath()使用：os.path.dirname(os.path.abspath(__file__))
